@@ -35,7 +35,7 @@ class WirelessInterfaceController < ApplicationController
 
   def deploy
     if File.readable?("/tmp/users")
-      `scp /tmp/users nots@tiorli:` if ENV['RAILS_ENV']=='production'
+      `scp /tmp/users tech@localhost:` if ENV['RAILS_ENV']=='production'
       flash[:notice]="Transfer complete: The RADIUS server is refreshed every 5 minutes" unless request.nil?
     else
       flash[:notice]="Error: Could not read output file" unless request.nil?

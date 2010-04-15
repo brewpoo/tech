@@ -128,8 +128,8 @@ eoc
     Domain.run_autodns
     if ENV['RAILS_ENV']=='production'
       Domain.find_all_by_autodns(true).each do |domain|
-        `ssh nots@#{domain.primary_server.fqdn} 'mkdir autodns'`
-        `scp /tmp/autodns/#{domain.primary_server.fqdn}/* nots@#{domain.primary_server.fqdn}:autodns/`
+        `ssh tech@#{domain.primary_server.fqdn} 'mkdir autodns'`
+        `scp /tmp/autodns/#{domain.primary_server.fqdn}/* tech@#{domain.primary_server.fqdn}:autodns/`
       end
     end
   end
