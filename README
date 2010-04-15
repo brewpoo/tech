@@ -8,3 +8,14 @@ This was originally developed for a transportation company and has been debrande
 The current authentication scheme needs to be rewritten as it depends completely on LDAP (no local user)
 
 
+Required:
+Ruby 1.8.7
+Railes 2.3.5
+
+Gems:
+ruby-net-ldap
+netaddr
+net-ping
+cached_model
+memcache-client (optional but recommended)
+

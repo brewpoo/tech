@@ -21,3 +21,5 @@ Implement zones
 Implement product/equipment attributes
 x IP Cleanup Module
 \ Add software components to device (OS, applications, etc)
+
+Add local user support and make LDAP support more generic
