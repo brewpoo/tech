@@ -1,14 +1,1 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
-  id: 1
-  last_name: 'Lochner'
-  first_name: 'Jon'
-  email: 'jjlochn@lirr.org'
-  phone: '718-558-6864'
-  employee_number: 28760
-  employer_id: 1
-two:
-  id: 2
-  last_name: 'Test'
-  first_name: 'User'
-

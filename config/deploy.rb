@@ -13,7 +13,7 @@ require 'mongrel_cluster/recipes'
 # form the root of the application path.
 
 set :application, "tech"
-set :repository, "svn+ssh://lirr-lxsvn.lirr.org/data/svn/nct/#{application}/trunk"
+set :repository, "svn+ssh://localhost/svn/#{application}/trunk"
 
 # =============================================================================
 # ROLES
@@ -24,11 +24,9 @@ set :repository, "svn+ssh://lirr-lxsvn.lirr.org/data/svn/nct/#{application}/trun
 # be used to single out a specific subset of boxes in a particular role, like
 # :primary => true.
 
-role :web, "ror-app1.lirr.org", "ror-app2.lirr.org"
-#role :web, "ror-app1.lirr.org"
-role :app, "ror-app1.lirr.org", "ror-app2.lirr.org"
-#role :app, "ror-app1.lirr.org"
-role :db,  "ror-db.lirr.org", :primary => true
+role :web, "localhost"
+role :app, "localhost"
+role :db,  "localhost", :primary => true
 
 # =============================================================================
 # OPTIONAL VARIABLES

@@ -34,13 +34,6 @@ production:
   username: tech
   password: hcet
   socket: /data/db/mysql/mysql.sock
-  host: ror-db.lirr.org
-
-pls:
-  adapter: oci
-  host: PLS
-  username: jlochn
-  password: abc123
-
+  host: proddb
 
 lookups: roles, tasks, users, roles_tasks, roles_users, related_tasks, contacts, topologies, network_classes, device_classes, line_types, line_speeds

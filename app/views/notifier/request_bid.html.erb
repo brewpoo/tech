@@ -6,13 +6,10 @@ Reply must be made on this form and faxed or emailed to Contract Manager below.<
        <tr><td>&nbsp;</td><td><%= @purchase_contact.full_name %></td></tr>
 </table>
 <br/>
-Please provide a quotation for the following items in accordance with the Base Agreement No. 09083. Notice of award will
-be made by the issuance of a Purchase Order Release Form (PORF) accepting your quotation.  This PORF Inquiry must be
-signed by an authorized individual and faxed or emailed back to   <a href="mailto:porfnots@lirr.org?subject=Bid response for <%= @requisition.release_number %>">porfnots@lirr.org</a>. The LIRR will ultimately
-require proof of cost to vendor. All claims of cost to vendor are subject to LIRR confirmation and LIRR's right to request
-that a bidder provide additional proof of cost to vendor.<br/>
+Please provide a quotation for the following items
+This inquiry must be signed by an authorized individual and faxed or emailed back to   <a href="mailto:<%= $settings[:email_address] %>?subject=Bid response for <%= @requisition.release_number %>">:<%= $settings[:email_address] %></a>.
 <br/>
-Release Number: <%= @requisition.release_number %> --- For: Long Island Rail Road<br/>
+Release Number: <%= @requisition.release_number %> ---
 Comment: <%= @requisition.comment %><br/>
 <br/>
 Contract Manager: <%= @requisition.processor.contact.full_name %> --- Phone: <%= @requisition.processor.contact.phones[0].number %> ---
@@ -50,4 +47,4 @@ Vendor's Signature:______________________________Title: _____________________<br
 <br/>
 Federal Tax ID#:_________________________________Date:_______________________<br/>
 <br/>
-Thanks - NOTS<br/>
+Thanks<br/>

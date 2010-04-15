@@ -1,2 +1,2 @@
-update contacts set email = 'jjlochn@lirr.org';
+update contacts set email = 'developer@localhost';
 

@@ -14,4 +14,4 @@ Estimated Total: <%= @order.total_cost.to_f.to_currency %><br/>
 <br/>
 <%= link_to "Click here to approve this order", :only_path => false, :controller => 'order', :action => 'remote_approve', 
       :key => @order.access_key , :id => @order.id %><br/>
-Thanks - NOTS<br/>
+Thanks<br/>

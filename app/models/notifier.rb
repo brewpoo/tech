@@ -1,10 +1,10 @@
 class Notifier < ActionMailer::Base
     include ActionController::UrlWriter
-    default_url_options[:host] = 'nots.lirr.org'
+    default_url_options[:host] = $settings[:fqdn]
 
   def order_created(recipient,order)
     recipients recipient.email
-    from "nots@lirr.org"
+    from $settings[:email_address]
     subject "An order has been created"
     content_type 'text/html'
     body :contact => recipient, :order => order
@@ -12,7 +12,7 @@ class Notifier < ActionMailer::Base
 
   def outstanding_approvals(recipient,orders)
     recipients recipient.email
-    from "nots@lirr.org"
+    from $settings[:email_address]
     subject "Outstanding orders for approval"
     content_type 'text/html'
     body :contact => recipient, :orders => orders
@@ -20,7 +20,7 @@ class Notifier < ActionMailer::Base
 
   def order_approved(recipient,order)
     recipients recipient.email
-    from "nots@lirr.org"
+    from $settings[:email_address]
     subject "An order has been approved"
     content_type 'text/html'
     body :contact => recipient, :order => order
@@ -28,7 +28,7 @@ class Notifier < ActionMailer::Base
 
   def order_notify(recipient,order)
     recipients recipient.email
-    from "nots@lirr.org"
+    from $settings[:email_address]
     subject "An order has been approved"
     content_type 'text/html'
     body :contact => recipient, :order => order
@@ -36,7 +36,7 @@ class Notifier < ActionMailer::Base
 
   def notify_received(recipient,items)
     recipients recipient.email
-    from "nots@lirr.org"
+    from $settings[:email_address]
     subject "Order items have arrived"
     content_type 'text/html'
     body :contact => recipient, :items => items
@@ -44,7 +44,7 @@ class Notifier < ActionMailer::Base
 
   def notify_distributed(recipient,contact,items)
     recipients recipient.email
-    from "nots@lirr.org"
+    from $settings[:email_address]
     subject "Order items have been picked up"
     content_type 'text/html'
     body :recipient => recipient, :contact => contact, :items => items
@@ -52,9 +52,7 @@ class Notifier < ActionMailer::Base
 
   def request_bid(purchase_contact,requisition)
     recipients purchase_contact.email
-    from "porfnots@lirr.org"
-#    from requisition.processor.email
-#    cc requisition.processor.email
+    from $settings[:email_address]
     subject "Request for Bid"
     content_type 'text/html'
     body :requisition => requisition, :purchase_contact => purchase_contact
@@ -62,7 +60,7 @@ class Notifier < ActionMailer::Base
   
   def request_bid_sent(recipient, requisition, purchase_contacts)
     recipients recipient.email
-    from "nots@lirr.org"
+    from $settings[:email_address]
     subject "Request for Bid has been sent"
     content_type 'text/html'
     body :requisition => requisition, :purchase_contacts => purchase_contacts
@@ -70,7 +68,7 @@ class Notifier < ActionMailer::Base
 
   def bad_reqs(contact, missing_reqs, mismatched_reqs, updated_reqs)
     recipients contact.email
-    from "nots@lirr.org"
+    from $settings[:email_address]
     subject "Incorrect/Missing Reqs Report"
     content_type 'text/html'
     body :contact => contact, :missing_reqs => missing_reqs, :mismatched_reqs => mismatched_reqs, :updated_reqs => updated_reqs
@@ -78,8 +76,8 @@ class Notifier < ActionMailer::Base
 
   def send_message(recipients,message)
     recipients recipients
-    from "nots@lirr.org"
-    subject "Message from NOTS"
+    from $settings[:email_address]
+    subject "Message from Tech"
     content_type 'text/html'
     body :message => message
   end

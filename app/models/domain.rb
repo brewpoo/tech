@@ -25,7 +25,7 @@ class Domain < ActiveRecord::Base
   def build_forward_header
     return unless generate_soa?
     header  = <<eoc
-; This file created by NOTS AutoDNS feature, do not edit
+; This file created by Tech AutoDNS feature, do not edit
 $TTL 1H
 @  SOA #{primary_server.fqdn}.  root.#{primary_server.fqdn}. (
 \t#{Domain.new_serial} ;Serial

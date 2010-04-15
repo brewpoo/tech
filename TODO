@@ -10,12 +10,6 @@ Override form columns in mp_pvcs for cascading updates device --> interface
 Override form columns in mp_dlci for cascading updates mp_line --> interface
 
 Fix User.refresh fails in admin
-x PLS Interface
-  Select all opened outstanding reqs (req present but no po)
-  Search for req_id in pls
-    Missing req? --> Collect and email
-    Matched req w/no PO --> move along
-    Matched req w/ PO --> Updated NOTS with PO
 
 \ Add management URL functionality
 

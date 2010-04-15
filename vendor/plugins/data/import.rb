@@ -51,18 +51,6 @@ def get_mask(id)
 end
 
 def lookup_provider(id)
-  case id
-    when 1
-      return Company.find_or_create_by_name_and_is_provider("Verizon",true) 
-    when 2
-      return Company.find_or_create_by_name_and_is_provider("LIRR",true)
-    when 3
-      return Company.find_or_create_by_name_and_is_provider("Amtrak",true)
-    when 4
-      return Company.find_or_create_by_name_and_is_provider("Transit Authority",true)
-    when 6
-      return Company.find_or_create_by_name_and_is_provider("New Jersey Transit",true)
-  end
 end
 
 def lookup_circuit_type(app)
