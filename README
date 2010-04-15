@@ -1,1 +1,10 @@
 Tech
+
+Tech is a Ruby on Rails application for tracking IT inventory, including subnets, devices, server, prints, etc.  The frontend
+is primarily built on ActiveScaffold and is somewhat barebones.
+
+This was originally developed for a transportation company and has been debranded and released into open source by me the developer.
+
+The current authentication scheme needs to be rewritten as it depends completely on LDAP (no local user)
+
+
