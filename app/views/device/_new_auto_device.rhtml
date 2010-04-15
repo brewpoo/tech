@@ -1,0 +1,14 @@
+<% fields_for "device[]", device do |f| %>
+<tr class="new-device"><td>
+  <%= f.text_field 'hostname', :size => 15, :index => nil %>
+</td><td>
+  <%= f.text_field 'description', :size => 15, :index => nil %>
+</td><td>
+  <%= f.select 'device_class', tree_select_map(DeviceClass.find(:all,:conditions=>'parent_id is null',:order=>'name').reject{|d|d.name=="Server"},0), 
+    { :selected => @device_class.nil? ? nil : @device_class.id, :index => nil, :prompt => "Choose One"}, { :onchange => "update_always('last-device-class',this)" } %>
+</td><td>
+  <%= f.select 'subnet', Subnet.select_map, { :selected => @subnet.nil? ? nil : @subnet.id, :index => nil, :prompt => "Choose One"},  
+    {:onchange => "update_always('last-subnet',this)" } %>
+  <%= link_to_function image_tag("remove"), "remove_destroyed('.new-device',this)" %>
+</td></tr>
+<% end %>

@@ -1,0 +1,7 @@
+Please supply a name and a description for the device:<br/>
+Name: <%= text_field 'device', 'hostname' %><br/>
+Description: <%= text_field 'device', 'description' %><br/>
+Device Class: <%= select 'device', 'device_class', @device_classes, :prompt=>'Choose One' %><br/>
+Interface name (optional): <%= text_field 'device', 'interface' %><br/>
+Add details for device? <%= check_box 'device', 'edit_device' %><br/>
+

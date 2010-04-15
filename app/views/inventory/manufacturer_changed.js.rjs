@@ -1,0 +1,1 @@
+page.replace_html 'product-family-select', :partial => 'product_family_select', :locals => { :product_families => @product_families }

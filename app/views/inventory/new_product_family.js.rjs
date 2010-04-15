@@ -1,0 +1,2 @@
+page.replace_html 'subform', :partial => 'product_family_subform', :locals => { :product_family => @product_family }
+page.show 'overlay'

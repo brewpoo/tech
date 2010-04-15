@@ -1,0 +1,11 @@
+<div id="item-<%=@item.id.to_s%>" class="item">
+<% fields_for "distributed_item[]", distributed_item do |f| %>
+  <%= f.text_field :distribute_quantity, :index => nil, :size => 3 %> of
+  <%= f.hidden_field :id, :index => nil %>
+  <%=distributed_item.number_distributable%> x <%=distributed_item.order_item.description%> ON:<%= distributed_item.order_item.order.order_number %>
+  RS:<%= distributed_item.order_item.order.requisitions.collect{|r| r.release_number}.to_sentence %> For:<%=distributed_item.order_item.order.assignee || distributed_item.order_item.order.requestor.to_label%>
+
+  <%= link_to_function image_tag("remove"), "remove_destroyed('.item',this)" %>
+<% end %>
+</div>
+

@@ -1,0 +1,16 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+  <h4>Order Processed</h4>
+  <% if @order.unprocessed? %>
+    <% linky = link_to @order.description, { :action => 'edit', :controller => 'order', :id => @order.id } %>
+    Order <%= linky %> has some remaining items<br/>
+  <% end %> 
+  <br/> 
+  <% linky = link_to @requisition.release_number, { :action => 'edit', :controller => 'requisition', :id => @requisition.id } %>
+  Requisition <%= linky %> created/added to.</br>
+  <br/>
+  <%= link_to 'List', :action => 'list' %>
+</div>
+</div>
+

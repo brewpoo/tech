@@ -1,0 +1,15 @@
+<li class="form-element">
+<dl>
+  <dt>
+    <label for="record_primary_engineer">Primary Engineer</label>
+  </dt>
+  <dd>
+    <span id="primary-engineer-select">
+      <% selected = @record.primary_engineer.nil? ? nil : @record.primary_engineer.id %>
+      <%= select :record, :primary_engineer, Contact.used_select, { :selected => selected, :prompt => "Choose Engineer" } %>
+      <%= all_contacts_link('primary-engineer-select') %>
+    </span>
+  </dd>
+</dl>
+</li>
+

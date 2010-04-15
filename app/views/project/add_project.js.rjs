@@ -1,0 +1,4 @@
+page.replace_html 'project-select', :partial => 'project_select', :locals => { :projects => @projects }
+page.hide 'overlay'
+
+

@@ -1,0 +1,2 @@
+<%= link_to "Details", { :controller => '/report/network', :action => 'run', :commit => 'Run', :output_format => 'html',
+    :report=>{:id=>'5'}, :filter=>{:ipv4_subnet_id=>@subnet.ipv4_subnet.id}}, :method => :post %>

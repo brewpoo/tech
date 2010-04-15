@@ -1,0 +1,2 @@
+page.replace_html 'subform', :partial => 'project_subform', :locals => { :project => @project }
+page.show 'overlay'

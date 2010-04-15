@@ -1,0 +1,13 @@
+<%= @contact.first_name %>, 
+
+A new order has been approved. The order was created by <%= @order.requestor.contact.full_name %>.<br/>
+<br/>
+Order Description: <%= @order.description %><br/>
+Items:<br/>
+<% @order.order_items.each { |item| %>
+  <%= item.line_item %><br/>
+<% } %>
+<br/>
+Estimate Cost: <%= @order.total_cost %><br/>
+<br/>
+Thanks - NOTS<br/>

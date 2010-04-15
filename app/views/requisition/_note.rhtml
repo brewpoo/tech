@@ -1,0 +1,14 @@
+<div class="note">
+<% fields_for "requisition[note_attributes][]", note do |f| %>
+  <p>
+  <%= f.text_area :body, :index => nil %>
+  <% if note.new_record? %>
+    <%= link_to_function "remove", "remove_note(this)" %>
+  <% else %>
+    <%= link_to_function "remove", "mark_note_destroyed(this)" %>
+    <%= f.hidden_field :id, :index => nil %>
+    <%= f.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+  <% end %>
+  </p>
+<% end %>
+</div>

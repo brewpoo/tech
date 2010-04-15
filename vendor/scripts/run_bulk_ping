@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /data/rails/tech/current
+script/runner -e production 'Ipv4Interface.PingAllPingable'

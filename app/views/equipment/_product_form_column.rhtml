@@ -1,0 +1,15 @@
+<li class="form-element">
+<dl>
+  <dt>
+    <label for="record_product">Product</label>
+  </dt>
+  <dd>
+    <span id="product-select">
+      <% selected = @record.product.nil? ? nil : @record.product.id %>
+      <%= select :record, :product, Product.used_select, { :selected => selected, :prompt => "Choose Product" } %>
+      <%= all_products_link %>
+    </span>
+  </dd>
+</dl>
+</li>
+

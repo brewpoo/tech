@@ -1,0 +1,6 @@
+dom = params[:return_to] || 'contact-select'
+partial = params[:partial] || 'contact_select'
+page.replace_html dom, :partial => partial, :locals => { :contact => @contact, :contacts => @contacts }
+page.hide 'overlay'
+
+

@@ -1,0 +1,2 @@
+page.replace_html 'subform', :partial => 'contact_subform', :locals => { :contact => @contact, :employers => @employers, :departments => @departments }
+page.show 'overlay'

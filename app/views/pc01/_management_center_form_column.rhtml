@@ -1,0 +1,13 @@
+<div style="width: 25%">
+  <table cellspacing="0" cellpading="0"><tr><td><label for="budget-year">Budget Year</label></td>
+             <td><label for="fund-code">Fund Code</label></td>
+             <td><label for="budget-code">Budget Code</label></td>
+             <td><label for="management-center">Management Center</label></td>
+             <td><label for="work-order">Work Order</label></td></tr>
+  <tr><td><%= text_field :record, :budget_year, :size => 4 %></td>
+      <td><%= text_field :record, :fund_code, :size => 2 %></td>
+      <td><%= text_field :record, :budget_code, :size => 4 %></td>
+      <td><%= text_field :record, :management_center, :size => 3 %></td>
+      <td><%= text_field :record, :work_order, :size => 4 %></td></tr></table><br/>
+  </div>
+

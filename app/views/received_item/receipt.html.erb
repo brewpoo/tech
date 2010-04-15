@@ -1,0 +1,41 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<%= error_messages_for :received_items %>
+<div id="messages">
+</div>
+
+<% form_remote_for :search, :url => {:action => 'search'}, 
+     :after => "$('search-indicator').style.visibility = 'visible'; Form.disable('search-form');",
+     :complete => "$('search-indicator').style.visibility = 'hidden'; Form.enable('search-form');",
+     :html => { :id => 'search-form', :class => 'search' } do %>
+<div id='search'>
+  <h4>Search for Items to Receive</h4>
+  <%= text_field_tag :q %> <%= loading_indicator('search-indicator') %><br/>
+  <%= submit_tag "Search", :onclick => "" %> 
+</div>
+<% end %>
+
+<div id='search-results' style="display:none;">
+  <h4>Search Results</h4>
+  <div id='results'>
+  </div>
+</div>
+<br/>
+<% form_for :received_items, :url => { :action => 'receipt' } do |f| %>
+<h4>Receipt for Received Items</h4>
+<div id="info">
+Date: <%= Time.now %><br/>
+Received By: <%= this_user.contact.full_name %><br/>
+</div>
+<br/>
+Items Received:<br/>
+<div id='items'>
+</div>
+<br/>
+Print this form as a receipt for received items<br/>
+<%= submit_tag "Receive" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+
+</div>
+</div>

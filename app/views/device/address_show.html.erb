@@ -1,0 +1,16 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>New Address Assigned</h4>
+Device: <%= @device.hostname %><br/>
+
+IP Address: <%= @ip_address %><br/>
+Subnet Mask: <%= @ipv4_subnet.subnet_mask%><br/>
+Gateway: <%= @ipv4_subnet.gateway_address %><br/>
+<br/>
+<%= link_to "Again", :action => 'get_new_address' %> or <%= link_to "Edit", :action => 'edit', :id => @device %> or <%= link_to "Done", :action => 'list' %>
+</div>
+</div>
+
+
+

@@ -1,0 +1,5 @@
+dom = params[:return_to] || 'location-select'
+partial = params[:partial] || 'location_select'
+page.replace_html dom, :partial => partial, :locals => { :locations => @locations }
+page.hide 'overlay'
+

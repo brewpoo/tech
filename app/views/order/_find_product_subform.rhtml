@@ -1,0 +1,12 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+  <h4>Quick Add by part number</h4>
+  <div id="subform-messages"></div>
+  <% remote_form_for :product, :url => { :action => 'add_find_product' } do %>
+    <label for="model-number">Model Number:</label><br/>
+    <%= text_field_tag :model_number %><br/>
+  <%= submit_tag "Find and Add" %> or <%= link_to_function "Cancel", "$('overlay').hide()" %>
+<% end %>
+  </div>
+</div>
+  

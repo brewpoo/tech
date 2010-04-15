@@ -1,0 +1,7 @@
+<div>
+<% fields_for "orphan[]", orphan do |f| %>
+  <%= f.check_box :remove, :index => nil %>
+  <%= f.hidden_field :id, :index => nil %>
+  <%= orphan.to_label %>
+<% end %>
+</div>

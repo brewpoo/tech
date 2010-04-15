@@ -1,0 +1,9 @@
+#!/bin/sh
+cd /data/rails/tech/current
+script/runner -e production 'RequisitionItem.run_precache'
+script/runner -e production 'Location.run_precache'
+script/runner -e production 'Product.run_precache'
+script/runner -e production 'Device.run_precache'
+script/runner -e production 'Subnet.run_precache'
+script/runner -e production 'Contact.run_precache'
+

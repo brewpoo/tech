@@ -1,0 +1,38 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<%= error_messages_for :order %>
+
+<div id='details'>
+Order Details:<br/>
+Date Ordered: <%= @order.ordered_on.to_s(:long) %><br/>
+Requested By: <%= @order.requestor.to_label %><br/>
+Description: <%= @order.description %><br/>
+</div>
+<br/>
+<div id='notes'>
+  <% @order.notes.each do |note| %>
+    <pre><%= note.body %></pre>
+  <% end %>
+</div>
+<% form_for @requisition, :url => { :action => 'requisition' } do |r| %>
+<%= hidden_field_tag :management_center, @order.management_center %>
+<div id='items'>
+If necessary, adjust the items to be added to the requisition. <br/>
+You may want to break the requisition items up by the intended vendor.<br/>
+<table><tr><th>Count</th><th>Item Description</th></tr>
+  <% @order.unprocessed_order_items.each do |item| %>
+    <%= render :partial => 'requisition_item', :object => item %>
+  <% end %>
+</table>
+</div>
+<br/>
+<div id='requisition'>
+Add To Requisition:<br/>
+<%= select :requisition, 'id', Requisition.find_available.map {|m| [m.to_label,m.id]} , :prompt => 'Create new' %>
+<div>
+<%= submit_tag "Commit" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+
+</div>
+</div>

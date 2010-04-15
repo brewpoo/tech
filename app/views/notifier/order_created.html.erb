@@ -1,0 +1,17 @@
+<%= @contact.first_name %>, 
+
+A new order has been created by <%= @order.requestor.contact.full_name %>.<br/>
+<br/>
+Please review the order:<br/>
+<br/>
+Order Description: <%= @order.description %><br/>
+Items:<br/>
+<% @order.order_items.each { |item| %>
+  <%= item.line_item %><br/>
+<% } %>
+<br/>
+Estimated Total: <%= @order.total_cost.to_f.to_currency %><br/>
+<br/>
+<%= link_to "Click here to approve this order", :only_path => false, :controller => 'order', :action => 'remote_approve', 
+      :key => @order.access_key , :id => @order.id %><br/>
+Thanks - NOTS<br/>

@@ -1,0 +1,29 @@
+Audit each controller, set default ordering and show.columns
+Ensure role security per method!! (Do this through hidden Tasks)
+Add logic to check for and create if necessary new users
+Refactor order approval to the model
+
+Change Orders by Manager to use purchased_on as search and sort criteria
+Add BPO expiry report
+
+Override form columns in mp_pvcs for cascading updates device --> interface
+Override form columns in mp_dlci for cascading updates mp_line --> interface
+
+Fix User.refresh fails in admin
+x PLS Interface
+  Select all opened outstanding reqs (req present but no po)
+  Search for req_id in pls
+    Missing req? --> Collect and email
+    Matched req w/no PO --> move along
+    Matched req w/ PO --> Updated NOTS with PO
+
+\ Add management URL functionality
+
+Build PC01 Form
+
+Fix AJAX request auth issues!!
+
+Implement zones
+Implement product/equipment attributes
+x IP Cleanup Module
+\ Add software components to device (OS, applications, etc)

@@ -1,0 +1,2 @@
+module ProjectWhiteboardHelper
+end

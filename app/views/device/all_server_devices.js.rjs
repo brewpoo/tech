@@ -1,0 +1,5 @@
+dom = params[:return_to] || 'device-select'
+partial = params[:partial] || 'device_select'
+page.replace_html dom, :partial => partial, :locals => { :devices => @devices }
+page.hide 'overlay'
+

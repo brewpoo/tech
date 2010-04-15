@@ -1,0 +1,26 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+  <h4>Create contact</h4>
+  <% remote_form_for :contact, :url => { :controller => 'contact', :action => 'add_contact' } do %>
+    <%= hidden_field_tag :return_to, params[:return_to] %>
+    <%= hidden_field_tag :partial, params[:partial] %>
+    <%= hidden_field_tag :local, params[:local] %>
+    <% if contact.employer %>
+      <%= hidden_field_tag :employer, contact.employer.id %>
+    <% else %>
+      <label for="employer">Employer</label><br/>
+      <%= select :employer, '', @employers, { :prompt => 'Select employer' } %><br/>
+    <% end %> 
+    <label for="last_name">Last Name:</label><br/>
+    <%= text_field_tag :last_name %><br/>
+    <label for="first_name">First Name:</label><br/>
+    <%= text_field_tag :first_name %><br/>
+    <label for="department">Department</label><br/>
+    <%= select :department, '', @departments, { :prompt => 'Select department' } %><br/>
+    <label for="email">Email Address:</label><br/>
+    <%= text_field_tag :email %><br/>
+  <%= submit_tag "Create" %> or <%= link_to_function "Cancel", "$('overlay').hide();" %>
+  <% end %>
+  </div>
+</div>
+  

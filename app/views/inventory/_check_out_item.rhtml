@@ -1,0 +1,9 @@
+<div id="item-<%=@item.id.to_s%>" class="item">
+<% fields_for "check_out_items[]", check_out_item do |f| %>
+  <%= f.text_field :check_out_quantity, :index => nil, :size => 3 %> of
+  <%= f.hidden_field :id, :index => nil %>
+  <%= check_out_item.product_full_name %> [ <%= check_out_item.product.part %> ] <%= "SN: #{check_out_item.serial_number}" if check_out_item.serial_number %>
+  <%= link_to_function "remove", "remove_destroyed('.item',this)" %>
+<% end %>
+</div>
+

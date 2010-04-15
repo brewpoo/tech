@@ -1,0 +1,6 @@
+page['subform-messages'].show
+page.replace_html 'subform-messages', flash[:notice]
+flash[:notice] = nil
+page.visual_effect :fade, 'subform-messages', :duration => 5
+page.insert_html :bottom, 'order-items', :partial => 'order_item', :locals =>  { :order_item => @order_item }
+page.hide 'overlay'

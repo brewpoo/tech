@@ -1,0 +1,47 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<%= error_messages_for :requisition %>
+<h4>Bid Request for <%= "#{@requisition.to_label}" %></h4>
+
+<% form_for :requisition, :url => { :action => 'request_bid', :id => @requisition.id } do |f| %>
+<div id='details'>
+Requisition Details:<br/>
+Requisition Number: <%= @requisition.requisition_number %><br/>
+Created On: <%= @requisition.created_on.to_s(:long) %><br/>
+Processed By: <%= @requisition.processor.to_label %><br/>
+Bids due by: <%= f.calendar_date_select :due_by, :embedded => false %><br/>
+Deliver by: <%= f.calendar_date_select :deliver_by, :embedded => false %><br/>
+Comment: <%= f.text_field :comment %><br/>
+</div>
+<br/>
+<div id='notes'>
+  <%= "Notes:<br/>" if @requisition.notes %>
+  <% @requisition.notes.each do |note| %>
+    <pre><%= note.body %></pre>
+  <% end %>
+</div>
+<div id='items'>
+Requisition Items:<br/>
+<table><tr><th>Quantity</th><th>Item Description</th><th>May Substitute?</th></tr>
+<% @requisition.requisition_items.each do |item| %>
+  <tr><td>
+  <%= item.quantity %>
+  </td><td>
+  <%= item.order_item.description %>
+  </td><td>
+  <%= yesonly(item.order_item.can_substitute) %>
+  </td></tr>
+<% end %>
+</table>
+</div>
+<div id='purchase_contacts'>
+  <h4>Email bid requests to the following Vendors</h4>
+  <%= render :partial => 'purchase_contact', :collection => @purchase_contacts %>
+</div>
+<%= submit_tag "Send" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+
+
+</div>
+</div>

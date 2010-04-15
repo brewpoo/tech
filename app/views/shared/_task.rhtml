@@ -1,0 +1,36 @@
+<% if this_user.match_any_roles?(task.inherited_roles) and !task.hidden?
+     html_class = ''
+     html_class = 'fly' if task.has_visible_children?
+     html_class = 'drop' if !task.parent and task.has_visible_children?
+%>
+
+<li <%= "class='#{html_class}'" unless html_class.blank? %>>
+
+
+<% 
+      if task.action? && task.controller?
+        this_url="#{task.controller}/#{task.action}"
+      elsif task.url?
+        this_url="#{task.url}"
+      else
+        this_url="#noop"
+      end
+
+      if html_class.blank?
+        this_link = link_to h(task.title), this_url
+      else
+        this_link = "<a href='#{this_url}'>#{h(task.title)}<!--[if IE 7]><!--></a><!--<![endif]-->
+          <!--[if lte IE 6]><table><tr><td><![endif]-->"
+      end 
+%>
+
+      <%= "#{this_link}" %>
+  
+      <% if task.has_visible_children? %>
+        <% html_class = ''
+           html_class = 'class="left"' if task.depth > 2 or task.parent and task.parent.last? %>
+        <ul><%= render :partial => 'shared/task', :collection => task.children %></ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+      <% end %>
+
+</li>
+<% end %>

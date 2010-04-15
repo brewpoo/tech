@@ -1,0 +1,38 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Subnet Details</h4>
+
+<% form_for :subnet, :url => { :action => 'request_create' } do |f| %>
+<% fields_for :ipv4_subnet do |i| %>
+  Subnet Address:<br/>
+  <%= i.text_field :subnet_address, :disabled => !@ipv4_subnet.subnet_address.blank? %><br/>
+  Subnet Mask:<br/>
+  <%= i.text_field :subnet_mask, :disabled => !@ipv4_subnet.subnet_mask.blank? %><br/>
+  <%= i.hidden_field :subnet_address if !@ipv4_subnet.subnet_address.blank? %>
+  <%= i.hidden_field :subnet_mask if !@ipv4_subnet.subnet_mask.blank? %>
+<% end %>
+<br/>
+<br/>
+Network Class:<br/>
+<%= select :network_class, :id, NetworkClass.map_select %><br/>
+Topology:<br/>
+<%= select :topology, :id, Topology.map_select %><br/>
+<br/>
+Description:<br/>
+<%= f.text_field :description %><br/>
+<br/>
+Settings:<br/>
+Delinquent? <%= f.check_box :is_delinquent %><br/>
+Local Only? <%= f.check_box :is_local %><br/>
+Private? <%= f.check_box :is_private %><br/>
+Reserved? <%= f.check_box :is_reserved %><br/>
+Stealth? <%= f.check_box :is_stealth %><br/>
+<br/
+<%= submit_tag "Next" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+
+
+  </div>
+</div>
+

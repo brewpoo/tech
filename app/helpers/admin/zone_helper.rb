@@ -1,0 +1,2 @@
+module Admin::ZoneHelper
+end

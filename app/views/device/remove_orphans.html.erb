@@ -1,0 +1,13 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Remove Orphans</h4>
+<% form_for :device, :url => { :action => 'remove_orphans' } do |f| %>
+<%= render :partial => 'orphan', :collection => @devices %>
+<%= submit_tag "Remove" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+</div>
+</div>
+
+
+

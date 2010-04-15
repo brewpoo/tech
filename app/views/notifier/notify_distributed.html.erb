@@ -1,0 +1,10 @@
+<%= @recipient.first_name %>,<br/>
+<br/>
+Items that you ordered have been picked up by <%= @contact.full_name %><br/>
+<br/>
+Items:<br/>
+<% @items.each { |item| %>
+  <%= item.quantity %> x <%= item.order_item.description %><br/>
+<% } %>
+<br/>
+Thanks - NOTS<br/>

@@ -1,0 +1,10 @@
+Automatically add reports in migration
+Report.create...
+Task.create...
+
+Software quantities per quarter
+Order Items grouped by Project/Order Type/Manager/Requestor Detailed
+Total Cost grouped by Project/Order Type/Manager/Requestor Summary
+Aging Report Detailed
+Closed Orders Detailed
+Closed Orders Summary

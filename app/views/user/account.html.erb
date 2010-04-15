@@ -1,0 +1,47 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h3>Account Management</h3>
+  <div id="account">
+    Contact Details <%= link_to_function "View", "$('contact-details').toggle();" %> <%= link_to "Edit", :controller => "contact", :action => "edit", :id => @user.contact.id %>
+    <br/>
+    <div id="contact-details" style="display:none;">
+      <label>Name:</label> <%= @user.contact.full_name %><br/>
+      <label>Title:</label> <%= @user.contact.title %><br/>
+      <label>Employer:</label> <%= @user.contact.employer.to_label %><br/>
+      <label>Department:</label> <%= @user.contact.department.to_label %><br/>
+      <label>Location:</label> <%= @user.contact.location.to_label %><br/>
+      <label>Phones:</label> <%= @user.contact.all_phones %><br/>
+      <label>Email:</label> <%= @user.contact.email %><br/>
+      <label>Manager:</label> <%= @user.contact.manager.to_label %>
+    </div>
+    <br/>
+    Default Page  <%= link_to_function "View", "$('default-details').toggle();" %> <%= link_to_function "Edit", "$('default-details').hide();$('default-form').show();" %>
+     <br/>
+    <div id="default-details" style="display:none;">
+      <label>Task:</label> <%= @task.to_label %>
+    </div>
+    <div id="default-form" style="display:none;">
+      <% remote_form_for :user, :url => { :action => 'set_default' } do |f| %>
+        <%= f.select :default_task, Task.find(:all).select{|t| this_user.match_any_roles?(t.inherited_roles) and !t.hidden?}.reject{
+        |t| t.empty?}.sort_by{|t| t.to_label}.map{|t|[t.to_label,t.id]}, :selected => @task.id %>
+      <%= submit_tag "Set" %> or <%= link_to_function "Cancel", "$('default-form').hide();" %>
+      <% end %>
+    </div>
+    <br/>
+    Roles <%= link_to_function "View", "$('role-details').toggle();" %>
+    <br/>
+    <div id="role-details" style="display:none;">
+      <label>Roles:</label> <%= @user.all_roles %>
+    </div>
+    <br/>
+    <div id="actions">
+      <ul>
+        <li><%= link_to "Flush Menu Cache", :action => 'flush' %></li>
+        <li><%= link_to "Logout", :action => 'logout' %></li>
+      </ul>
+    </div>
+  </div> 
+
+  </div>
+</div>

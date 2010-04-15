@@ -1,0 +1,6 @@
+<% fields_for "order_items[]", item do |f| %>
+  <%= f.check_box :selected %>
+  <%= f.hidden_field :id %>
+  <%= item.to_label %>
+  <br/>
+<% end %>

@@ -1,0 +1,21 @@
+<% fields_for "requisition[requisition_item_attributes][]", requisition_item do |f| %>
+<tr class="requisition-item"><td>
+  <%= f.text_field :quantity, :size => 3, :index => nil, :disabled => true%>
+</td><td>
+  <span ondblclick="$(this).next('.item-details').style.visibility='visible';">
+  <%= "#{requisition_item.description}" %><%= f.hidden_field :id, :index => nil %>
+  </span>
+  <% this_style = "visibility:hidden" if requisition_item.details.nil? || requisition_item.details.blank? %>
+  &nbsp; <%= f.text_field :details, :size => 60, :index => nil, :style => this_style,
+    :class => "item-details" %>
+</td><td>
+  <%= f.check_box :can_substitute, :index => nil, :disabled => true %>
+</td><td>
+  $ <%= f.text_field :unit_price, :size => 6, :index => nil %>
+</td><td>
+  <% if @requisition.requisition_status.value < Requisition::PURCHASED and @requisition.requisition_items.length > 1%>
+    <%= link_to_function image_tag('remove'), "mark_destroyed('.requisition-item',this)" %>
+    <%= f.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+  <% end %>
+</td></tr>
+<% end %>

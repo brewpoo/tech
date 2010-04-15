@@ -1,0 +1,24 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<div id="messages">
+</div>
+
+<h4>Charged Back Items</h4>
+<br/>
+The following items have been marked as charged back:<br/>
+Please print this and keep for your records<br/>
+<br/>
+Date: <%= Time.now %><br/>
+Received By: <%= this_user.contact.full_name %><br/>
+<br/>
+<div id='items'>
+<% @charged_back_items.each do |item| %>
+<%= "#{item.to_label} #{item.pc01_details} $#{item.charge_back_amount}" %><br/>
+<% end %>
+</div>
+<br/>
+<%= link_to "Done", :action => 'list' %>
+
+</div>
+</div>

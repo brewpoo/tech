@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  device_class_id: 1
+  vendor_id: 1
+  description: "Widget"
+  model_number: "A06"
+  detailed: true
+  
+two:
+  id: 2
+  device_class_id: 1
+  vendor_id: 2
+  description: "Wonger"
+  model_number: "1234-1234"  

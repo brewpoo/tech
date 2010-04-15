@@ -1,0 +1,5 @@
+dom = params[:return_to] || 'product-select'
+partial = params[:partial] || 'product_select'
+page.replace_html dom, :partial => partial, :locals => { :products => @products }
+page.hide 'overlay'
+

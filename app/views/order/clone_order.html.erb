@@ -1,0 +1,17 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Clone Order</h4>
+<% form_for :order, :url => { :action => 'clone_order' } do |f| %>
+Clone order: <%= f.select 'id', @order_select, :prompt => "Choose One" %><br/>
+<br/>
+Description of new order: <%= f.text_field 'description' %><br/>
+<br/>
+<br/>
+<%= submit_tag "Clone" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+</div>
+</div>
+
+
+

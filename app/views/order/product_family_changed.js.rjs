@@ -1,0 +1,2 @@
+page.replace_html 'product-select', :partial => 'product_select', :locals => { :products => @products }
+page << "$('active-order-item').down('.manufacturer').disable"

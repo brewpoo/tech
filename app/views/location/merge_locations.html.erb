@@ -1,0 +1,17 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Merge Locations</h4>
+<% form_for :location, :url => { :action => 'merge_locations' } do |f| %>
+Merge Location: <%= select 'merge_from', 'id', @locations, :prompt => "Choose Original Location" %><br/>
+<br/>
+Merge Into: <%= select 'merge_to', 'id', @locations, :prompt => "Choose New Location" %><br/>
+<br/>
+<br/>
+<%= submit_tag "Merge" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+</div>
+</div>
+
+
+

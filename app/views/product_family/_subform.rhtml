@@ -1,0 +1,9 @@
+<% remote_form_for :product_family, :url => { :controller => '/product_family', :action => 'new_product_family' } do %>
+  <div>
+    <label for="name">Name:</label><br/>
+    <%= text_field_tag :name %>
+    <%= hidden_field_tag :manufacturer, product_family.manufacturer %>
+  </div>
+  <%= submit_tag "Create Product Family" %> or <%= link_to_function "Cancel", "$('subform').hide()" %>
+<% end %>
+  

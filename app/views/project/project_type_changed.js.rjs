@@ -1,0 +1,5 @@
+#page.replace_html 'project-number-input', :partial => 'project_number_input', :locals => { :project => @project }
+#page << "${'project-number').value = #{@next_project_number}"
+#page << "${'record_project_number_').value = #{@new_project_number};"
+page[:record_project_number_].value = @new_project_number
+

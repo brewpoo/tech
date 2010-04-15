@@ -1,0 +1,14 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Relinquish Address</h4>
+<% form_for :device, :url => { :action => 'relinquish_address' } do |f| %>
+IP Address: <%= f.text_field 'ip_address' %><br/>
+<br/>
+<%= submit_tag "Relinquish" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+</div>
+</div>
+
+
+

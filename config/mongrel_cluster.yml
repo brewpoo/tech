@@ -1,0 +1,9 @@
+--- 
+user: mongrel
+group: mongrel
+cwd: /data/rails/tech/current
+port: "9001"
+environment: production
+address: 127.0.0.1
+servers: 4
+

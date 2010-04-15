@@ -1,0 +1,6 @@
+<div id="menu_container">
+  <ul id="pmenu">
+    <%= render :partial => 'shared/task', :collection => Task.find_all_by_parent_id(nil, :order => 'title') %>
+  </ul>
+</div>
+

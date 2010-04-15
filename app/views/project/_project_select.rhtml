@@ -1,0 +1,3 @@
+<%= select caller, :project_id, Project.select_map, { :prompt => 'Choose project' },
+    { :class => 'project-select'} %>
+<%# add_project_link %>

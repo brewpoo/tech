@@ -1,0 +1,2 @@
+page.replace_html 'subform', :partial => 'find_product_subform'
+page.show 'overlay'

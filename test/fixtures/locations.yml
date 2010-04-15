@@ -1,0 +1,14 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  name: "first"
+  depth: 0
+  contact_id: 1
+two:
+  id: 2
+  parent_id: 1
+  name: "second"
+  depth: 1
+  latitude: 45.01
+  longitude: -70.25
+

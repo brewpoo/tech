@@ -1,0 +1,11 @@
+<div id="item-<%=@item.id.to_s%>" class="item">
+<% fields_for "received_item[]", received_item do |f| %>
+  <%= f.text_field :receive_quantity, :index => nil, :size => 3 %> of
+  <%= received_item.number_receivable %> x 
+  <%= f.hidden_field :id, :index => nil %>
+  <%= received_item.order_item.description %> PO:<%= received_item.requisition.purchase_order %>
+  RQ:<%=received_item.requisition.requisition_number %> RN:<%=received_item.requisition.release_number %> For:<%=received_item.order_item.order.assignee || received_item.order_item.order.requestor.to_label%>
+  <%= link_to_function image_tag("remove"), "remove_destroyed('.item',this)" %>
+<% end %>
+</div>
+

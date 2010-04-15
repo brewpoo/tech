@@ -1,0 +1,7 @@
+<% fields_for "charge_back_items[]", pc01_item do |f| %>
+  <%= f.check_box :charge_back %>
+  <%# f.hidden_field :id, :index => nil %>
+  $<%= f.text_field :charge_back_amount, :size => 3 %>
+  <%= "#{pc01_item.to_label} #{pc01_item.pc01_details}" %>
+<% end %>
+<br/>

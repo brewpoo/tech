@@ -1,0 +1,33 @@
+<%= @contact.first_name %>,<br/>
+<br/>
+Incorrect or mismatched requisitions
+<br/>
+<% if @missing_reqs.length > 0 %>
+<h3>The following requisitions do not exist in PLS</h3>
+<ul>
+<% @missing_reqs.each { |req| %>
+  <li><%= req.requisition_number%></li>
+<% } %>
+</ul>
+<% end %>
+
+<% if @mismatched_reqs.length > 0 %>
+<h3>The following requisitions/purchase order numbers do not match with PLS</h3>
+<ul>
+<% @mismatched_reqs.each { |req| %>
+  <li><%= req.requisition_number %></li>
+<% } %>
+</ul>
+<% end %>
+
+<% if @updated_reqs.length > 0 %>
+<h3>The following requisitions where updated with purchase orders numbers from PLS</h3>
+<ul>
+<% @updated_reqs.each { |req| %>
+  <li><%= req.requisition_number %> PO:<%=req.purchase_order %></li>
+<% } %>
+</ul>
+<% end %>
+
+<br/>
+Thanks - NOTS<br/>

@@ -1,0 +1,46 @@
+<div id='requisition-form-messages'>
+  <%= error_messages_for 'requisition' %>
+</div>
+<div id='subform-messages'>
+</div>
+<div>
+  <p><label for="requisition_status">Status:</label><br/><%= @requisition.requisition_status.name %></p>
+  <br/>
+  <label for="release-number">Release Number:</label><br/>
+  <%= f.text_field :release_number %><br/>
+  <label for="vendor">Awarded To:</label><br/>
+  <%=f.select :vendor_id, Company.vendors_select, { :prompt => "Choose One" }, 
+              { :class => 'vendor-select',
+              :onchange => "conditional_enable('.requisition-number',this);conditional_enable('.purchase-order',this)" } %><br/>
+  <%= f.hidden_field :vendor_was, :value => @requisition.vendor_id %>
+  <label for="requisition_number">Requistion Number:</label><br/>
+  <%= f.text_field :requisition_number, :disabled => (!@requisition.vendor or @requisition.is_pcard_purchase?), :class => 'requisition-number', 
+          :onchange => "conditional_enable('.purchase-order',this)" %><br/>
+  <%= f.hidden_field :requisition_number_was, :value => @requisition.requisition_number %>
+  <label for="Purchase Order">Purchase Order:</label><br/>
+  <%=f.text_field :purchase_order,  :disabled => (!@requisition.vendor or @requisition.is_pcard_purchase?), :class => 'purchase-order' %><br/>
+  <%= f.hidden_field :purchase_order_was, :value => @requisition.purchase_order %>
+  <label for="PCARD Purchase?">PCARD Purchase?:</label><br/>
+  <%= f.check_box :is_pcard_purchase %><br/>
+  <%= f.hidden_field :is_pcard_purchase_was, :value => @requisition.is_pcard_purchase %>
+  <label for="management-center">Management Center:</label><br/>
+  <%= f.text_field :management_center %><br/>
+  <label for="budget-account">Budget Account:</label><br/>
+  <%= f.text_field :budget_account %><br/>  
+  <label for="price-quote">Price Quote:</label><br/>
+  <%= f.text_field :price_quote_number %><br/>
+</div>
+<div>
+  <label for="notes">Notes:</label><br/>
+  <div id="notes">
+    <%= render :partial => 'note', :collection => @requisition.notes if @requisition.notes %>
+  </div>
+  <%= add_note_link "Add a note" %>
+</div>
+<div>
+  <label for="requisition-items">Items:</label><br/>
+  <table id="requisition-items" class="item-table">
+  <tr><th>Count</th><th>Item Description</th><th>May Substitute?</th><th>Unit Price</th></tr>
+    <%= render :partial => 'requisition_item', :collection => @requisition.requisition_items %>
+  </table>
+</div>

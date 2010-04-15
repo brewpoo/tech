@@ -1,0 +1,2 @@
+page.replace_html 'results', :partial => 'item', :collection => @equipment
+page.show 'search-results'

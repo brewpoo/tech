@@ -1,0 +1,8 @@
+page['subform-messages'].show
+page.replace_html 'subform-messages', flash[:notice]
+flash[:notice] = nil
+page.visual_effect :fade, 'subform-messages', :duration => 5
+page.replace_html 'product-select', :partial => 'product_select', :locals => { :products => @products }
+page.hide 'overlay'
+
+

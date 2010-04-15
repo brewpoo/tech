@@ -1,0 +1,4 @@
+@number.to_i.times do 
+  page.insert_html :bottom, 'inventory-items', :partial => 'inventory_item', :locals =>  { :inventory_item => @equipment }
+end
+page.replace_html 'active-inventory-item', :partial => 'active_inventory_item', :object => Equipment.new

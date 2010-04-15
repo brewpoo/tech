@@ -1,0 +1,15 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+  <h4>Create project</h4>
+  <% remote_form_for :project, :url => { :controller => 'project', :action => 'add_project' } do %>
+    <label for="project_number">Project Number:</label><br/>
+    <%= text_field_tag :project_number %><br/>
+    <label for="title">Title:</label><br/>
+    <%= text_field_tag :title %><br/>
+   <label for="description">Description:</label><br/>
+    <%= text_field_tag :description %><br/>
+  <%= submit_tag "Create" %> or <%= link_to_function "Cancel", "$('overlay').hide();" %>
+  <% end %>
+  </div>
+</div>
+  

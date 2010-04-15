@@ -1,0 +1,4 @@
+<% fields_for "requisition_item[]", requisition_item do |f| %>
+<tr><td><%= f.text_field :quantity, :size => 3, :value => requisition_item.number_remaining %> of <%= requisition_item.number_remaining %></td>
+<td><%= requisition_item.description %></td></tr>
+<% end %>

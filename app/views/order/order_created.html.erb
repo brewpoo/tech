@@ -1,0 +1,16 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Order Created</h4>
+  <% linky = link_to @order.description, { :action => 'edit', :controller => 'order', :id => @order.id } %>
+  <%= "#{linky}, Order number: #{@order.order_number}" %>
+<br/>
+<br/>
+<%= link_to "Process", { :action => 'requisition', :id => @order.id } if @order.order_status == OrderStatus.find_by_value(Order::APPROVED) %>
+<%= link_to "Edit", { :action => 'edit', :id => @order.id } if @order.order_status == OrderStatus.find_by_value(Order::DRAFT) %>
+<%= link_to "Show", { :action => 'show', :id => @order.id } %>
+<%= link_to "List", :action => 'list' %>
+
+</div>
+</div>
+

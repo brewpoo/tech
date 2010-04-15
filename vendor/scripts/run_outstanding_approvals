@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /data/rails/tech/current
+script/runner -e production 'Order.find_and_notify_unapproved_orders'
+

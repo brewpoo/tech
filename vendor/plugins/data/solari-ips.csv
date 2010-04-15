@@ -1,0 +1,156 @@
+172.17.14.5,Scenarioserver,Workstation,Jamaica
+172.17.14.11,wks1,Workstation,Jamaica
+172.17.14.12,wks2,Workstation,Jamaica
+172.17.14.13,wks3,Workstation,Jamaica
+172.17.14.14,wks4,Workstation,Jamaica
+172.17.14.15,wks5,Workstation,Jamaica
+172.17.14.16,wks6,Workstation,Jamaica
+172.17.14.47,TFE27,Workstation,Jamaica
+172.17.14.48,TFE28,Workstation,Jamaica
+172.17.14.49,TFE29,Workstation,Jamaica
+172.17.14.50,TFE30,Workstation,Jamaica
+172.17.14.71,TFW11,Workstation,Jamaica
+172.17.14.72,TFW12,Workstation,Jamaica
+172.17.14.73,TFW13,Workstation,Jamaica
+172.17.14.22,TFE02,Workstation,Jamaica
+172.17.14.23,TFE03,Workstation,Jamaica
+172.17.14.24,TFE04,Workstation,Jamaica
+172.17.14.25,TFE05,Workstation,Jamaica
+172.17.14.26,TFE06,Workstation,Jamaica
+172.17.14.27,TFE07,Workstation,Jamaica
+172.17.14.28,TFE08,Workstation,Jamaica
+172.17.14.88,TFW28,Workstation,Jamaica
+172.17.14.89,TFW29,Workstation,Jamaica
+172.17.14.90,TFW30,Workstation,Jamaica
+172.17.14.56,TFE36,Workstation,Jamaica
+172.17.14.96,TFW36,Workstation,Jamaica
+172.17.14.81,TFW21,Workstation,Jamaica
+172.17.14.82,TFW22,Workstation,Jamaica
+172.17.14.83,TFW23,Workstation,Jamaica
+172.17.14.84,TFW24,Workstation,Jamaica
+172.17.14.85,TFW25,Workstation,Jamaica
+172.17.14.86,TFW26,Workstation,Jamaica
+172.17.14.87,TFW27,Workstation,Jamaica
+172.17.14.74,TFW14,Workstation,Jamaica
+172.17.14.75,TFW15,Workstation,Jamaica
+172.17.14.76,TFW16,Workstation,Jamaica
+172.17.14.77,TFW17,Workstation,Jamaica
+172.17.14.78,TFW18,Workstation,Jamaica
+172.17.14.79,TFW19,Workstation,Jamaica
+172.17.14.80,TFW20,Workstation,Jamaica
+172.17.14.40,TFE20,Workstation,Jamaica
+172.17.14.41,TFE21,Workstation,Jamaica
+172.17.14.42,TFE22,Workstation,Jamaica
+172.17.14.43,TFE23,Workstation,Jamaica
+172.17.14.44,TFE24,Workstation,Jamaica
+172.17.14.45,TFE25,Workstation,Jamaica
+172.17.14.46,TFE26,Workstation,Jamaica
+172.17.14.33,TFE13,Workstation,Jamaica
+172.17.14.34,TFE14,Workstation,Jamaica
+172.17.14.35,TFE15,Workstation,Jamaica
+172.17.14.36,TFE16,Workstation,Jamaica
+172.17.14.37,TFE17,Workstation,Jamaica
+172.17.14.38,TFE18,Workstation,Jamaica
+172.17.14.39,TFE19,Workstation,Jamaica
+172.17.14.66,TFW06,Workstation,Jamaica
+172.17.14.67,TFW07,Workstation,Jamaica
+172.17.14.68,TFW08,Workstation,Jamaica
+172.17.14.69,TFW09,Workstation,Jamaica
+172.17.14.70,TFW10,Workstation,Jamaica
+172.17.14.31,TFE11,Workstation,Jamaica
+172.17.14.32,TFE12,Workstation,Jamaica
+172.17.14.29,TFE09,Workstation,Jamaica
+172.17.14.30,TFE10,Workstation,Jamaica
+172.17.14.61,TFW01,Workstation,Jamaica
+172.17.14.62,TFW02,Workstation,Jamaica
+172.17.14.63,TFW03,Workstation,Jamaica
+172.17.14.64,TFW04,Workstation,Jamaica
+172.17.14.65,TFW05,Workstation,Jamaica
+172.17.14.100,ITCP01,Workstation,Jamaica
+172.17.14.101,ITCP02,Workstation,Jamaica
+172.17.14.21,TFE01,Workstation,Jamaica
+172.17.14.110,TXML01,Workstation,Jamaica
+172.17.14.111,TXML02,Workstation,Jamaica
+172.17.14.112,TXML03,Workstation,Jamaica
+172.17.14.113,moxaNPort_1,Workstation,Jamaica
+172.17.14.114,moxaNPort_2,Workstation,Jamaica
+172.17.14.115,moxaNPort_3,Workstation,Jamaica
+172.17.14.201,db1,Server,Jamaica
+172.17.14.202,db2,Server,Jamaica
+172.17.14.210,dbmaster db,Server,Jamaica
+172.17.14.251,db1-iLO,RIB/ILO,Jamaica
+172.17.14.252,db2-iLO,RIB/ILO,Jamaica
+172.17.14.228,sw1,Switch,Jamaica
+172.17.14.229,sw2,Switch,Jamaica
+172.17.14.230,sw3,Switch,Jamaica
+172.17.14.231,sw4,Switch,Jamaica
+172.17.14.232,sw5,Switch,Jamaica
+172.17.14.233,sw6,Switch,Jamaica
+172.17.14.235,sw7,Switch,Jamaica
+172.17.14.236,sw8,Switch,Jamaica
+172.17.14.238,sw9,Switch,Jamaica
+172.17.14.239,sw10,Switch,Jamaica
+172.17.14.241,sw11,Switch,Jamaica
+172.17.14.242,sw12,Switch,Jamaica
+172.17.14.243,sw13,Switch,Jamaica
+172.17.14.244,sw14,Switch,Jamaica
+172.17.14.246,sw15,Switch,Jamaica
+172.17.14.247,sw16,Switch,Jamaica
+172.17.14.248,sw17,Switch,Jamaica
+172.17.14.250,sw18,Switch,Jamaica
+192.168.29.1,db1,Server,Flatbush
+192.168.29.2,db2,Server,Flatbush
+192.168.29.10,dbmaster db,Workstation,Flatbush
+192.168.29.251,db1-iLO,RIB/ILO,Flatbush
+192.168.29.252,db2-iLO,RIB/ILO,Flatbush
+192.168.29.11,wks1,Workstation,Flatbush
+192.168.29.12,wks2,Workstation,Flatbush
+192.168.29.113,moxaNPort_1,Workstation,Flatbush
+192.168.29.114,moxaNPort_2,Workstation,Flatbush
+192.168.29.115,moxaNPort_3,Workstation,Flatbush
+192.168.29.231,G01,Workstation,Flatbush
+192.168.29.232,G02,Workstation,Flatbush
+192.168.29.233,G03,Workstation,Flatbush
+192.168.29.234,G04,Workstation,Flatbush
+192.168.29.235,G05,Workstation,Flatbush
+192.168.29.236,G06,Workstation,Flatbush
+192.168.29.221,TFTN01,Workstation,Flatbush
+192.168.29.241,CB1,Workstation,Flatbush
+192.168.29.222,TFTN02,Workstation,Flatbush
+192.168.29.223,TFTN03,Workstation,Flatbush
+192.168.29.224,TFTN04,Workstation,Flatbush
+192.168.29.225,TFTN05,Workstation,Flatbush
+192.168.29.248,CB1FF,Workstation,Flatbush
+192.168.12.1,db1,Server,PENN Station
+192.168.12.2,db2,Server,PENN Station
+192.168.12.10,dbmaster db,Server,PENN Station
+192.168.12.251,db1-iLO,RIB/ILO,PENN Station
+192.168.12.252,db2-iLO,RIB/ILO,PENN Station
+192.168.12.103,IOS1,Workstation,PENN Station
+192.168.12.104,IOS2,Workstation,PENN Station
+192.168.12.105,IOS3,Workstation,PENN Station
+192.168.12.113,moxaNPort_1,Workstation,PENN Station
+192.168.12.114,moxaNPort_2,Workstation,PENN Station
+192.168.12.115,moxaNPort_3,Workstation,PENN Station
+192.168.12.232,LMDB02,Workstation,PENN Station
+192.168.12.233,LMDB03,Workstation,PENN Station
+192.168.12.234,LMDB04,Workstation,PENN Station
+192.168.12.235,LMDB05,Workstation,PENN Station
+192.168.12.236,LMDB06,Workstation,PENN Station
+192.168.12.237,LMDB07,Workstation,PENN Station
+192.168.12.238,LMDB08,Workstation,PENN Station
+192.168.12.239,LMDB09,Workstation,PENN Station
+192.168.12.240,LMDB10,Workstation,PENN Station
+192.168.12.244,LMDB14,Workstation,PENN Station
+192.168.12.245,LMDB15,Workstation,PENN Station
+192.168.12.243,LMDB13,Workstation,PENN Station
+192.168.12.241,LMDB11,Workstation,PENN Station
+192.168.12.242,LMDB12,Workstation,PENN Station
+192.168.12.231,LMDB01,Workstation,PENN Station
+192.168.12.221,CB1,Workstation,PENN Station
+192.168.12.228,CB1FF,Workstation,PENN Station
+192.168.12.211,CB2,Workstation,PENN Station
+192.168.12.218,CB2FF,Workstation,PENN Station
+192.168.12.201,CB3,Workstation,PENN Station
+192.168.12.208,CB3FF,Workstation,PENN Station
+192.168.12.249,34STFT,Workstation,PENN Station

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+                <meta http-equiv="Content-type" content="text/html; charset=utf-8" />           
+                <title>NOTS:  <%= controller.controller_name.pluralize %></title>
+                <%= stylesheet_link_tag "default.css" %>
+                <%= javascript_include_tag :defaults %>
+                <%= calendar_date_select_includes :blue %>
+                <%= active_scaffold_includes %>
+                <link rel="icon" type="image/gif" href="/images/favicon.gif"/>
+        </head>
+
+<body>
+
+
+<div id="overlay" style="display: none;">
+  <div id="subform">
+  </div>
+</div>
+
+
+<% if logged_in? %>
+<%= image_tag('logo.jpg') %><br/>
+<% cache(:controller => 'task', :action => 'menu', :user_id => this_user.id) do %>
+  <%= render :partial => 'shared/menu' %>
+<% end %>
+
+
+<div id="actions" class="user-menu" >
+  <ul>
+    <li><%= link_to "Account", :controller => '/user', :action => 'account' %> |</li>
+    <li><%= link_to "Logout (#{session[:user]})", :controller => '/user', :action => 'logout' %></li>
+  </ul>
+</div>
+
+<% if ENV['RAILS_ENV']=='development' %>
+<h4>Development Environment</h4>
+<% end %>
+
+<div id="flash">
+<% if flash[:notice] or flash[:error] %>
+  <%= render_flash %>
+<% end %>
+</div>
+
+<div id="related-tasks">
+  <form name="jump">
+  <%= render_related_tasks %>
+  </form>
+</div>
+
+<% end %>
+
+  <%= yield  %>
+
+<% if ENV['RAILS_ENV'] == 'development' %>
+    <div id="debug" style="margin: 40px 5px 5px 5px;">
+        <a href="#" onclick="Element.toggle('debug_info');return false" style="text-decoration: none; color: #ccc;">Show Debug Info</a>
+        <div id="debug_info" style="display: none;">
+            <%= debug session %>
+            <%= debug params %>
+        </div>
+    </div>
+<% end %>
+
+</body>
+</html>
+

@@ -1,0 +1,5 @@
+<div class="menu">
+  <ul>
+    <%= render :partial => 'task', :collection => Task.find_all_by_parent_id(nil, :order => ':title') %>
+  </ul>
+</div>

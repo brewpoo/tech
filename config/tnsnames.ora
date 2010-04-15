@@ -1,0 +1,10 @@
+PLS =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = plshill.lirr.org)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = PLSDEV)
+    )
+  )
+

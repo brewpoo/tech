@@ -1,0 +1,18 @@
+<%= @contact.first_name %>, 
+
+A new order has been approved. The order was created by <%= @order.requestor.contact.full_name %>.<br/>
+<br/>
+Please process the order:<br/>
+<br/>
+Order Description: <%= @order.description %><br/>
+Items:<br/>
+<% @order.order_items.each { |item| %>
+  <%= item.line_item %><br/>
+<% } %>
+<br/>
+Estimated Total: <%= @order.total_cost.to_f.to_currency %><br/>
+<br/>
+<%= link_to "Click here to process this order now", :only_path => false, :controller => 'order', :action => 'process', 
+      :id => @order.id %><br/>
+Or log in and processs the order when convenient.<br/>
+Thanks - NOTS<br/>

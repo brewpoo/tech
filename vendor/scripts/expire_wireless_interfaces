@@ -1,0 +1,5 @@
+#!/bin/sh
+cd /data/rails/tech/current
+script/runner -e production 'WirelessInterface.expire'
+script/runner -e production "WirelessInterfaceController.new.apply"
+script/runner -e production "WirelessInterfaceController.new.deploy"

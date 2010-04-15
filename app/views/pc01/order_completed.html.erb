@@ -1,0 +1,20 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<%= error_messages_for :pc01_items %>
+<div id="messages">
+</div>
+<h4><%= order_title(@orders.length) %></h4>
+<% @orders.each do |order| %>
+  <% linky = link_to order.description, { :action => 'edit', :controller => 'order', :id => order.id } %>
+  <%= "#{linky}, Order number: #{order.order_number}" %>
+  <br/>
+<% end %>
+<br/>
+You must now edit these orders and specify the particular hardware (spec).  See the notes field for descriptions
+of the items to be ordered.<br/>
+<br/>
+<%= link_to "List", :action => 'list' %>
+
+</div>
+</div>

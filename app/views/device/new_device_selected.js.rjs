@@ -1,0 +1,1 @@
+page.replace_html 'device-subform', :partial => 'new_device_subform', :locals => { :devices => @devices }

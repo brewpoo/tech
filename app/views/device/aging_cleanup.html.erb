@@ -1,0 +1,22 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<div id="messages">
+</div>
+
+<% form_for :interfaces, :url => { :action => 'aging_cleanup' } do |f| %>
+<h4>Cleanup Aging Interfaces</h4>
+<br/>
+Check interfaces to be removed<br/>
+<br/>
+<div id='items'>
+<table><tr><th>Delete?</th><th>Hostname</th><th>Device Class</th><th>IP Address</th><th>Ping Count</th><th>Last Pinged On</th></tr>
+<%= render :partial => 'interface', :collection => @interfaces %>
+</table>
+</div>
+<br/>
+<%= submit_tag "Cleanup" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+
+</div>
+</div>

@@ -1,0 +1,45 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<%= error_messages_for :distributed_items %>
+<div id="messages">
+</div>
+
+<% form_remote_for :search, :url => {:action => 'search'}, 
+     :after => "$('search-indicator').style.visibility = 'visible'; Form.disable('search-form');",
+     :complete => "$('search-indicator').style.visibility = 'hidden'; Form.enable('search-form');",
+     :html => { :id => 'search-form', :class => 'search' } do %>
+<div id='search'>
+  <h4>Search for Items to Distribute</h4>
+  <%= text_field_tag :q %> <%= loading_indicator('search-indicator') %><br/>
+  <%= submit_tag "Search", :onclick => "" %> 
+</div>
+<% end %>
+
+<div id='search-results' style="display:none;">
+  <h4>Search Results</h4>
+  <div id='results'>
+  </div>
+</div>
+<br/>
+<% form_for :distributed_items, :url => { :action => 'distribute' } do |f| %>
+<h4>Receipt for Distributed Items</h4>
+<div id='info'>
+Date: <%= Time.now %><br/>
+Distributed By: <%= this_user.contact.full_name %><br/>
+Distributed To: 
+<span id="contact-select">
+  <%= render :partial => '/contact/contact_select', :locals => { :departments => this_user.contact.employer.departments.map{|d|[d.name,d.id]} }  %>
+  </span>
+</div>
+<br/>
+Items Distributed:<br/>
+<div id='items'>
+</div>
+<br/>
+Print this form as a receipt for distribution<br/>
+<%= submit_tag "Distribute" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+
+</div>
+</div>

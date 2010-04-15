@@ -1,0 +1,18 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<%= error_messages_for :pc01_items %>
+<div id="messages">
+</div>
+
+<% form_for :pc01, :url => { :action => 'order' } do |f| %>
+<h4>New Order Items</h4>
+Select the items you want to build orders for:<br/>
+<br/>
+<%= render :partial => 'item', :collection => @items %>
+<br/>
+<%= submit_tag "Create" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+
+</div>
+</div>

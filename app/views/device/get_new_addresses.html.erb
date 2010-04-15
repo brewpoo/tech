@@ -1,0 +1,24 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Sign out multiple addresses</h4>
+This form is used to assign multiple addresses. Please fill in a hostname.  Description is optional<br>
+<% form_for :device, :url => { :action => 'get_new_addresses' } do |f| %>
+<%= hidden_field_tag :last_device_class, {}, :id => 'last-device-class' %>
+<%= hidden_field_tag :last_subnet, {}, :id => 'last-subnet' %>
+<table><tbody id="new-devices" class="device-table">
+<tr><th>Name</th><th>Description</th><th>Device Class</th><th>Subnet</th></tr>
+<%= render :partial => 'new_auto_device', :locals => { :device => Device.new}  %>
+</tbody></table>
+<%= link_to_remote image_tag("add.gif"), :url => { :action => "add_auto_device"},
+    :with => "'subnet=' + document.getElementById('last-subnet').value + '&device_class=' + document.getElementById('last-device-class').value"
+%> Add Another
+<br/>
+<br/>
+<br/>
+Once submitted new addresses will be assigned.<br/>
+<%= submit_tag "Next" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+
+  </div>
+</div?

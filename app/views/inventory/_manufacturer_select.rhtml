@@ -1,0 +1,6 @@
+<%= select :manufacturer, 'id', manufacturers, { :prompt => 'Choose manufacturer' },
+    { :onchange => "new Ajax.Request('/inventory/manufacturer_changed/' + this[this.selectedIndex].value,
+    { asynchronous:true, evalScripts:true});", :class => 'manufacturer'} %>
+<%= add_manufacturer_link %>
+
+

@@ -1,0 +1,29 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Get New Address</h4>
+<% form_for :device, :url => { :action => 'get_new_address' } do |f| %>
+For Device:<br/>
+<%= radio_button_tag 'new_or_existing', 'existing', true, {:onchange=>"new Ajax.Request('/device/existing_device_selected',{asynchronous:true,
+    evalScripts:true});"} %> Existing <br/>
+<%= radio_button_tag 'new_or_existing', 'new', false, {:onchange=>"new Ajax.Request('/device/new_device_selected',{asynchronous:true,
+    evalScript:true});"} %> New <br/>
+<div id='device-subform'>
+<%= render :partial=>'existing_device_subform' %>
+</div>
+<br/>
+Address:<br/>
+<%= radio_button_tag 'manual_or_auto', 'auto', true, {:onchange=>"new Ajax.Request('/device/auto_address_selected',{asynchronous:true,
+    evalScript:true});"} %> Automatic <br/>
+<%= radio_button_tag 'manual_or_auto', 'manual', false, {:onchange=>"new Ajax.Request('/device/manual_address_selected',{asynchronous:true,
+    evalScripts:true});"} %> Manual <br/>
+<div id='address-subform'>
+<%= render :partial =>'auto_address_subform' %>
+</div>
+<br/>
+<br/>
+<%= submit_tag "Okay" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+</div>
+</div>
+

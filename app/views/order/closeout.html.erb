@@ -1,0 +1,25 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Closeout Order</h4>
+<% form_for :order, :url => { :action => 'closeout' } do |f| %>
+This will closeout an order without need for receipt or distribution.  All items will be marked as<br/>
+receipted/distributed to you.<br/>
+Select all orders you want to closeout:<br/>
+<br/>
+<table><tr><th>Close?</th><th>Order</th><th>Description</th><th>Ordered On</th><th>Order Type</th><th>Requistiions</th><th>Total Cost</th></tr>
+<% @closeout_items.each do |closeout_item| %>
+  <% fields_for "closeout_items[]", closeout_item, :index => nil do |f| %>
+    <tr><td><%= check_box_tag  "select_item[#{closeout_item.id}]" %></td>
+    <td><%=closeout_item.order_number%></td><td><%= closeout_item.description %></td><td><%=closeout_item.ordered_on%></td><td><%=closeout_item.order_type.name%></td>
+    <td><%=closeout_item.purchase_orders%></td><td><%=closeout_item.total_price%></td></tr>
+  <% end %>
+<% end %>
+
+</table>
+<br/>
+<%= submit_tag "Closeout" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+</div>
+</div>
+

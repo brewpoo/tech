@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+                <meta http-equiv="Content-type" content="text/html; charset=utf-8" />           
+                <title>NOTS:  <%= controller.controller_name.titleize %> Reports</title>
+                <%= stylesheet_link_tag "default.css" %>
+                <%= javascript_include_tag :defaults %>
+                <%= calendar_date_select_includes :blue %>
+                <%= active_scaffold_includes %>
+        </head>
+
+<body>
+
+<div id="overlay" style="display: none;">
+  <div id="subform">
+  </div>
+</div>
+
+<%= image_tag('logo.jpg') %><br/>
+
+
+<% if logged_in? %>
+<% cache (:controller => 'task', :action => 'menu', :user_id => this_user.id) do %>
+  <%= render :partial => 'shared/menu' %>
+<% end %>
+
+
+<div id="actions" class="user-menu" >
+  <ul>
+    <li><%= link_to "Logout (#{session[:user]})", :controller => '/user', :action => 'logout' %></li>
+    <li><%= link_to_remote "Set Default", :url => { :controller => '/user', :action => 'set_default', 
+                               :a => controller.action_name, :c => controller.controller_path } %></li>
+  </ul>
+</div>
+
+<% if ENV['RAILS_ENV']=='development' %>
+<h4>Development Environment</h4>
+<% end %>
+
+<% if flash[:notice] or flash[:error] %>
+<div id="flash">
+  <%= render_flash %>
+</div>
+<% end %>
+
+<div id="related-tasks">
+  <form name="jump">
+  <%= render_related_tasks %>
+  </form>
+</div>
+
+<% end %>
+
+  <div class="active-scaffold">
+    <div class="create-view view">
+
+    <div id="messages">
+    </div>
+
+    <% form_for :report, :url => {:controller => "report/#{controller.controller_name}", :action => 'run'},
+     :after => "$('search-indicator').style.visibility = 'visible'; Form.disable('report-form');",
+     :complete => "$('search-indicator').style.visibility = 'hidden'; Form.enable('report-form');",
+     :html => { :id => 'report-form', :class => 'search' } do %>
+
+
+    <h3><%=controller.controller_name.titleize %> Reports</h3>
+
+    <h4>Select Report:</h4>
+  
+    <%= select :report, 'id', @reports, {:prompt => 'Choose Report' },
+      { :onchange => "new Ajax.Request('/report/#{controller.controller_name}/show/' + this[this.selectedIndex].value,
+      { asynchronus:true, evalScripts:true});" }  %>
+
+    <div id="report-filters">
+    </div>
+    <br/>
+    <div id="output-options">
+      <h4>Select Output Format:</h4>
+      <%= radio_button_tag 'output_format', 'html', true %> HTML <br/>
+      <%= radio_button_tag 'output_format', 'pdf', false %> PDF <br/>
+      <%= radio_button_tag 'output_format', 'csv', false %> CSV <br/>
+    </div>
+
+    <%= submit_tag "Run", :onclick => "" %>  <%= loading_indicator('search-indicator') %><br/>
+    <% end %>
+
+  <%# yield  %>
+  
+    </div>
+  </div>
+
+</body>
+</html>
+

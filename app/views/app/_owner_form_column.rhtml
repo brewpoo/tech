@@ -1,0 +1,14 @@
+<li class="form-element">
+<dl>
+  <dt>
+    <label for="record_owner">Owner</label>
+  </dt>
+  <dd>
+    <span id="owner-select">
+      <% selected = @record.owner.nil? ? nil : @record.owner.id %>
+      <%= select :record, :owner, Contact.used_select, { :selected => selected, :prompt => "Choose Owner" } %>
+      <%= all_contacts_link('owner-select','owner_select') %>
+    </span>
+  </dd>
+</dl>
+

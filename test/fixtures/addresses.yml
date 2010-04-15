@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  street_address: "12 Washington"
+  city_id: 1
+  
+two:
+  id: 2
+  street_address: "8 Plum"
+  city_id: 1 

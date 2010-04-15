@@ -1,0 +1,2 @@
+page.insert_html :bottom, 'order-items', :partial => 'order_item', :locals =>  { :order_item => @order_item }
+page.replace_html 'active-order-item', :partial => 'active_order_item', :object => OrderItem.new

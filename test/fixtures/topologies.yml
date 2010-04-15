@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  name: "Ethernet"
+two:
+  id: 2
+  parent_id: 1
+  name: "Wireless Ethernet"
+three:
+  id: 3
+  parent_id: 2
+  name: "802.11b"
+  description: "2.4 GHz, 11 Mbps"

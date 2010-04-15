@@ -1,0 +1,26 @@
+<%= @requisition.processor.contact.first_name %>,<br/>
+<br/>
+An email has been sent to the following vendors for bids on requisition <%= @requisition.to_label %><br/>
+<br/>
+Items:<br/>
+<table border="1" frame="box" rules="all">
+<tr style="background: black; color:white;"><td>Quantity</td><td>Description</td><td>Unit Price*</td><td>Extended Price</td></tr>
+<% @requisition.requisition_items.each do |item| %>
+  <tr><td>
+  <%= item.quantity %> ea.
+  </td><td>
+  <%= item.order_item.description %>
+  </td><td>
+  &nbsp;
+  </td><td>
+  &nbsp;
+  </td></tr>
+<% end %>
+</table>
+<br/>
+The request was sent to the following individuals:<br/>
+<% @purchase_contacts.each do |purchase_contact| %>
+  <%= "#{purchase_contact.employer.name} - #{purchase_contact.full_name} (#{purchase_contact.email})" %><br/>
+<% end %>
+<br/>
+Thanks - NOTS<br/>

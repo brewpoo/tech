@@ -1,0 +1,6 @@
+<% fields_for "closeout_items[]", closeout_item do |f| %>
+  <tr><td><%= f.check_box :select_item, :index => nil %> 
+  <%= f.hidden_field :id, :index => nil %></td>
+  <td><%=closeout_item.order_number%></td><td><%=closeout_item.ordered_on%></td><td><%=closeout_item.order_type.name%></td>
+  <td><%=closeout_item.purchase_orders%></td><td><%=closeout_item.total_price%></td></tr>
+<% end %>

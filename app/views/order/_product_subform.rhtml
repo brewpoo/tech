@@ -1,0 +1,27 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+  <h4>Create product</h4>
+  <% remote_form_for :product, :url => { :action => 'add_product' } do %>
+    Product Family: <%= "#{product.product_family.name}" %><br/>
+    <%= hidden_field_tag :product_family, product.product_family.id %>
+    <label for="name">Name:</label><br/>
+    <%= text_field_tag :name, {}, :onchange => "update_if_blank('.model-number',this)" %><br/>
+    <label for="description">Description:</label><br/>
+    <%= text_area_tag :description %><br/>
+    <label for="device_class">Device Class:</label><br/>
+    <%= select :device_class, '', @device_classes, { :prompt => 'Select if applicable' } %><br/>
+    <label for="model_number">Model Number:</label><br/>
+    <%= text_field_tag :model_number, {}, :class => 'model-number' %><br/>
+    <label for="part_number">Part Number:</label><br/>
+    <%= text_field_tag :part_number, {}, :class => 'part-number' %><br/>
+    <label for="spare_number">Spare Part Number:</label><br/>
+    <%= text_field_tag :spare_number %><br/>
+    <label for="architecture">System Architecture:</label><br/>
+    <%= select :architecture, '', @architectures, { :prompt => 'Select if applicable' } %><br/>
+    <label for="detailed">Track product details?</label><br/>
+    <%= check_box_tag :detailed %><br/>   
+  <%= submit_tag "Create" %> or <%= link_to_function "Cancel", "$('overlay').hide();" %>
+  <% end %>
+  </div>
+</div>
+  

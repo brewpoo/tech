@@ -1,0 +1,24 @@
+<% fields_for "order[order_item_attributes][]", order_item do |f| %>
+<tr class="order-item"><td>
+  <%= f.text_field :quantity, :size => 3, :index => nil%>
+</td><td>
+  <span ondblclick="$(this).next('.item-details').style.visibility='visible';">
+  <%= "#{order_item.product.full_name}"  %>
+  <%= "Part Number: #{order_item.product.part_number}" unless order_item.product.part_number.blank? %>
+  </span>
+  <% this_style = "visibility:hidden" if order_item.details.nil? || order_item.details.blank? %>
+   &nbsp; <%= f.text_field :details, :size => 60, :index => nil, :style => this_style,
+      :class => "item-details" %>
+  <%= f.hidden_field :product, :value => order_item.product.id, :index => nil %>
+</td><td>
+  $ <%= f.text_field :unit_price, :size => 6, :index => nil %>
+</td><td>
+  <% if order_item.new_record? %>
+    <%= link_to_function image_tag('remove'), "remove_destroyed('.order-item',this)" %>
+  <% else %>
+    <%= link_to_function image_tag('remove'), "mark_destroyed('.order-item',this)" %>
+    <%= f.hidden_field :id, :index => nil  %>
+    <%= f.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+  <% end %>
+</td></tr>
+<% end %>

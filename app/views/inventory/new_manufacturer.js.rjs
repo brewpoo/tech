@@ -1,0 +1,2 @@
+page.replace_html 'subform', :partial => 'manufacturer_subform', :locals => { :manufacturer => @manufacturer }
+page.show 'overlay'

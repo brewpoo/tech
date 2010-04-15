@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  product_id: 1
+  location_id: 1
+  tag_number: 123456
+  serial_number: '00123-6675-003'
+  status_id: 1 
+two:
+  id: 2
+  product_id: 2
+  location_id: 1
+  tag_number: 123456
+  serial_number: '1234-5678'
+  status_id: 1
+

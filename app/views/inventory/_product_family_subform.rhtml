@@ -1,0 +1,12 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+  <h4>Create new product family</h4>
+  <% remote_form_for :product_family, :url => { :action => 'add_product_family' } do %>
+    <label for="name">Name:</label><br/>
+    <%= text_field_tag :name %><br/>
+    <%= hidden_field_tag :manufacturer, product_family.manufacturer.id %>
+  <%= submit_tag "Create" %> or <%= link_to_function "Cancel", "$('overlay').hide();" %>
+  <% end %>
+  </div>
+</div>
+  

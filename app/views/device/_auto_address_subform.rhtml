@@ -1,0 +1,5 @@
+<%= select 'subnet', 'id', @subnets, { :prompt=>'Choose Subnet' },
+    { :onchange => "new Ajax.Request('/device/subnet_changed/' + this[this.selectedIndex].value,
+    { asynchronous:true, evalScripts:true});", :class => 'subnet'} %>
+<span id="detail-link">
+</span>

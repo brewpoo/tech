@@ -1,0 +1,23 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Confirm Relinquish</h4>
+<% form_for :device, :url => { :action => 'relinquish_confirmed' } do |f| %>
+<%= hidden_field_tag :ipv4_interface, @ipv4_interface.ip_address %>
+Device: <%= @ipv4_interface.interface.device.hostname %><br/>
+IP Address to be removed: <%= @ipv4_interface.ip_address %><br/>
+<br/>
+<% if @ipv4_interface.device.interfaces_count == 1 %>
+<h4>Warning: This is the last interface for this device, the device will be purged</h4>
+<% end %>
+<% if @ipv4_interface.up? %>
+<h4>Warning: IP address responded to ping? Please verify that this is the correct address before proceeding</h4>
+<% end %>
+<br/>
+<%= submit_tag "Confirm" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+</div>
+</div>
+
+
+

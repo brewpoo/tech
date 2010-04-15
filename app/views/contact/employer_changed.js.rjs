@@ -1,0 +1,1 @@
+page.replace_html 'department-select', :partial => 'department_select', :locals => { :departments => @departments }

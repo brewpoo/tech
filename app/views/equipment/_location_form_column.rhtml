@@ -1,0 +1,15 @@
+<li class="form-element">
+<dl>
+  <dt>
+    <label for="record_location">Location</label>
+  </dt>
+  <dd>
+    <span id="location-select">
+      <% selected = @record.location.nil? ? nil : @record.location.id %>
+      <%= select :record, :location, Location.used_select, { :selected => selected, :prompt => "Choose Location" } %>
+      <%= all_locations_link %>
+    </span>
+  </dd>
+</dl>
+</li>
+

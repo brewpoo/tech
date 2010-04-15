@@ -1,0 +1,3 @@
+module Admin::DeviceClassHelper
+
+end

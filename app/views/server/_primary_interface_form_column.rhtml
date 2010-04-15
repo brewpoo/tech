@@ -1,0 +1,14 @@
+<li class="form-element">
+<dl>
+  <dt>
+    <label for="record_primary_interface">Primary Address</label>
+  </dt>
+  <dd>
+    <span id="primary-interace-select">
+      <% selected = @record.primary_interface.nil? ? nil : @record.primary_interface.id %>
+      <%= select :record, :primary_interface, @record.address_select_map, { :selected => selected, :prompt => "Choose Primary Interface" } %>
+    </span>
+  </dd>
+</dl>
+</li>
+

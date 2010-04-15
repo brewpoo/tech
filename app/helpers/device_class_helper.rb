@@ -1,0 +1,2 @@
+module DeviceClassHelper
+end

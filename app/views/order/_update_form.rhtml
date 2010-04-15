@@ -1,0 +1,11 @@
+<div id="orderform">
+<% form_for :order, :url => { :action => 'update', :id => @order.id }, :html => { :method => 'put' } do |f| %>
+  <%= render :partial => 'order_form', :locals => { :f => f } %>
+<p><% if @order.order_status == OrderStatus.find_by_value(Order::DRAFT) %>
+     <%= submit_tag "Update Draft" %> or <%= submit_tag "Finalize Order" %>
+   <% else %>
+     <%= submit_tag "Update Order" %>
+   <% end %>
+   or <%= link_to "Cancel", { :action => 'list'}  %></p>
+<% end %>
+</div>

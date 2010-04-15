@@ -1,0 +1,49 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<div id="subform-messages">
+</div>
+
+<%= error_messages_for :equipment %>
+<div id="messages">
+</div>
+
+<h4>Check Out Inventory Items</h4>
+
+<% form_remote_for :search, :url => {:action => 'search'},
+     :after => "$('search-indicator').style.visibility = 'visible'; Form.disable('search-form');",
+     :complete => "$('search-indicator').style.visibility = 'hidden'; Form.enable('search-form');",
+     :html => { :id => 'search-form', :class => 'search' } do %>
+<div id='search'>
+  Show all items in: 
+  <%= select :location, :id, Location.storage_location_select, { :prompt => "Storage Location" },
+        { :onchange => "new Ajax.Request('/inventory/search_location/' + this[this.selectedIndex].value,
+        { asynchronous:true, evalScripts:true});" }  %> <%= loading_indicator('search-indicator') %><br/>
+  <br/>
+  Find specific item:
+  <%= text_field_tag :q %>
+  <%= submit_tag "Search", :onclick => "" %><br/>
+</div>
+<% end %>
+
+<div id='search-results' style="display:none;">
+  <h4>Search Results</h4>
+  <div id='results'>
+  </div>
+</div>
+<br/>
+
+<% form_for :check_out, :url => { :action => 'check_out' } do |f| %>
+<div>
+<h4>Items to be Checked Out</h4>
+  <div id='items'>
+  </div>
+  <br/>
+  Move Items To: <%= f.select :location, Location.select_map, :prompt => "Select Location" %><br/>
+  Set Status as: <%= f.select :equipment_status, EquipmentStatus.select_map, :selected => EquipmentStatus.find_by_flag('stock').id %><br/>
+</div>
+<p><%= submit_tag "Check Out", :id => 'submit-button' %> or <%= link_to "Cancel", { :action => 'list' } %></p>
+<% end %>
+
+</div>
+</div>

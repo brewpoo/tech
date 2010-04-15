@@ -1,0 +1,19 @@
+<br/>
+<h4>Description</h4>
+<%= @description %><br/>
+<br/>
+<h4>Select Filter Options:</h4>
+<% @filters.each do |filter| %>
+  <%= filter[:name].titleize %>:<br/>
+  <% if filter[:type] == 'select' %>
+    <% if filter[:order] %>
+      <%= select 'filter', filter[:name], filter[:class].constantize.find(:all,:conditions=>filter[:conditions]).sort_by{|a| 
+            a.send(filter[:order].to_sym)}.map{|o| [o.send(filter[:label]), o.id]}, {:prompt => "Select to Filter"} %><br/>
+    <% else %>
+      <%= select 'filter', filter[:name], filter[:class].constantize.find(:all,:conditions=>filter[:conditions]).map{|o| [o.send(filter[:label]), o.id]}, {:prompt => "Select to Filter"} %><br/>
+    <% end %>
+  <% else %>
+    <%= text_field 'filter', filter[:name] %><br/>
+  <% end %>
+<% end %>
+<br/>

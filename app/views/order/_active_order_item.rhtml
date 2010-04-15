@@ -1,0 +1,24 @@
+<div id="active-order-item">
+Please be sure to add items correctly.  If the appropriate manufacturer is not in the list, select the add image next to manufacturer
+to add the new manufactuer.<br/>
+Product family should be either the official product family name if the manufacturer uses them, or it can be a more generic term like Printers.<br/>
+You must add the item to the order item list above by selecting 'add item'.  Only items show ABOVE are on the order.<br/>
+<%= find_item_link "Add by Part Number" %><br/>
+<% fields_for "active_order_item", active_order_item do |f| %>
+  <table class="item-table" width="50%"><tr><th>Manufacturer</th><th>Product Family</th><th>Product</th><th>Count</th><th>Unit Price</th><th>&nbsp;</th></tr>
+  <tr><td><span id="manufacturer-select">
+  <%= render :partial => 'manufacturer_select', :locals => { :manufacturers => Company.find_manufacturers.map {|m| [m.name, m.id]} }  %>
+  </span></td><td><span id="product-family-select">
+  <%= f.select :product_family, ["<-----"], {}, { :class => 'product-family' } %>
+  </span></td><td><span id="product-select">
+  <%= f.select :product, ["","<-----"], {}, { :class => 'product' } %>
+  </span></td><td>
+  <%= f.text_field :quantity, :class => 'quantity', :size => 3 %>
+  </td><td>
+  $ <%= f.text_field :unit_price, :class => 'unit-price', :size => 6%>
+  </td><td>
+  <%= add_item_link "Add to Order" %>
+  </td></tr></table>
+  <br/>
+<% end %>
+</div>

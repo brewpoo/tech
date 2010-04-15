@@ -1,0 +1,6 @@
+page << "if ($('item-#{@item.id.to_s}')) {
+           $('item-#{@item.id.to_s}').remove()
+         }"
+page.insert_html :bottom, 'items', :partial => 'check_out_item', :locals =>  { :check_out_item => @item }
+page.remove 'form-'+@item.id.to_s
+

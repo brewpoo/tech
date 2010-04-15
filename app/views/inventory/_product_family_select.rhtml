@@ -1,0 +1,4 @@
+<%= select :product_family, 'id', @product_families, { :prompt => 'Choose product family' },
+    { :onchange => "new Ajax.Request('/inventory/product_family_changed/' + this[this.selectedIndex].value,
+    { asynchronous:true, evalScripts:true});", :class => 'product-family'} %>
+<%= add_product_family_link %>

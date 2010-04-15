@@ -1,0 +1,22 @@
+<% fields_for "inventory_items[]", inventory_item do |f| %>
+<tr class="inventory-item"><td>
+  <%= f.text_field :count, :size => 3, :index => nil, :disabled => inventory_item.product.detailed %>
+</td><td>
+  <%= "#{inventory_item.product.full_name}"  %>
+  <%= "Part Number: #{inventory_item.product.part_number}" unless inventory_item.product.part_number.blank? %>
+  </span>
+  <%= f.hidden_field :product, :value => inventory_item.product.id, :index => nil %>
+</td><td>
+  <%= f.text_field :serial_number, :size => 16, :index => nil, :disabled => !inventory_item.product.detailed %>
+</td><td>
+  <%= f.text_field :tag_number, :size => 10, :index => nil, :disabled => !inventory_item.product.detailed %>
+</td><td>
+  <% if inventory_item.new_record? %>
+    <%= link_to_function image_tag('remove'), "remove_destroyed('.inventory-item',this)" %>
+  <% else %>
+    <%= link_to_function image_tag('remove'), "mark_destroyed('.inventory-item',this)" %>
+    <%= f.hidden_field :id, :index => nil  %>
+    <%= f.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+  <% end %>
+</td></tr>
+<% end %>

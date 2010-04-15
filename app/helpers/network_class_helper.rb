@@ -1,0 +1,2 @@
+module NetworkClassHelper
+end

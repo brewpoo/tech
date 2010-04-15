@@ -1,0 +1,53 @@
+<h4>PORF INQUIRY</h4>
+<br/>
+Reply must be made on this form and faxed or emailed to Contract Manager below.<br/>
+<br/>
+<table><tr><td>To:</td><td><%= @purchase_contact.employer.name %></td></tr>
+       <tr><td>&nbsp;</td><td><%= @purchase_contact.full_name %></td></tr>
+</table>
+<br/>
+Please provide a quotation for the following items in accordance with the Base Agreement No. 09083. Notice of award will
+be made by the issuance of a Purchase Order Release Form (PORF) accepting your quotation.  This PORF Inquiry must be
+signed by an authorized individual and faxed or emailed back to   <a href="mailto:porfnots@lirr.org?subject=Bid response for <%= @requisition.release_number %>">porfnots@lirr.org</a>. The LIRR will ultimately
+require proof of cost to vendor. All claims of cost to vendor are subject to LIRR confirmation and LIRR's right to request
+that a bidder provide additional proof of cost to vendor.<br/>
+<br/>
+Release Number: <%= @requisition.release_number %> --- For: Long Island Rail Road<br/>
+Comment: <%= @requisition.comment %><br/>
+<br/>
+Contract Manager: <%= @requisition.processor.contact.full_name %> --- Phone: <%= @requisition.processor.contact.phones[0].number %> ---
+Email: <%= @requisition.processor.contact.email %> ---
+Required Delivery Date: <%= @requisition.deliver_by.to_formatted_s(:long) unless @requisition.deliver_by.nil? %><br/>
+<br/>
+Quotations must be received no later than: <%= @requisition.due_by.to_formatted_s(:long) unless @requisition.due_by.nil? %><br/>
+<br/>
+Items:<br/>
+<table border="1" frame="box" rules="all">
+<tr style="background: black; color:white;"><td>Quantity</td><td>Description</td><td>Unit Price*</td><td>Extended Price</td></tr>
+<% @requisition.requisition_items.each do |item| %>
+  <tr><td>
+  <%= item.quantity %> ea.
+  </td><td>
+  <%= item.description %><br/>
+  Vendor Cost ($______________________) Markup (_________%)
+  </td><td>
+  &nbsp;
+  </td><td>
+  &nbsp;
+  </td></tr>
+<% end %>
+</table>
+<br/>
+* The Unit Price should be equal to the Vendor Cost plus the Markup.<br/>
+<br/>
+Gross Sum Bid: $_____________________________________________________________<br/>
+<br/>
+Gross Sum Bid Amount in words: ______________________________________________<br/>
+<br/>
+Name of Vendor: _____________________________________________________________<br/>
+<br/>
+Vendor's Signature:______________________________Title: _____________________<br/>
+<br/>
+Federal Tax ID#:_________________________________Date:_______________________<br/>
+<br/>
+Thanks - NOTS<br/>

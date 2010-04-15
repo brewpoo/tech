@@ -1,0 +1,13 @@
+<%= @contact.first_name %>,<br/>
+<br/>
+Items that you ordered have arrived and are ready for pick up<br/>
+<br/>
+Items:<br/>
+<% @items.each { |item| 
+  r = item.requisition_item.requisition
+  o = item.requisition_item.order_item.order %>
+  <%= item.quantity %> x <%= item.requisition_item.description %>
+  for <%= link_to h("#{o.description} (#{o.order_number}/#{r.release_number})"), :only_path => false, :controller => '/order', :action => 'show', :id => o.id %><br/>
+<% } %>
+<br/>
+Thanks - NOTS<br/>

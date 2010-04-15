@@ -1,0 +1,21 @@
+<% if flash[:notice] or flash[:error] %>
+<div id="flash">
+  <%= render_flash %>
+</div>
+<% end %>
+
+<%= image_tag ('intro.gif') %>
+  <% form_tag :action => 'login' do %>
+
+  <div id="login-form" style="margin-left:100px">
+    <h3>Please Log In:</h3>
+    <table>
+    <tr><td><label>Username:</label></td><td><%= text_field_tag 'username' %></td></tr>
+    <tr><td><label>Password:</label></td><td><%= password_field_tag 'password' %></td></tr>
+    </table>
+    <%= submit_tag "Log In" %>
+  <pre>It is highly recommended that you use Firefox.  IE6 is broken and may exhibit strange behaviour.</pre>
+  </div>
+
+  <% end %>
+

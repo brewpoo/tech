@@ -1,0 +1,11 @@
+<% fields_for "remove_interfaces[]", interface do |f| %>
+<tr><td>
+  <%= f.check_box :delete %>
+  <%# f.hidden_field :id, :index => nil %>
+</td><td><%= "#{interface.device.hostname}" %>
+</td><td><%= "#{interface.device.device_class.name}" %>
+</td><td><%= "#{interface.ip_address}" %>
+</td><td><%= "#{interface.ping_count}" %>
+</td><td><%= "#{interface.last_pinged_on}" %>
+</td></tr>
+<% end %>

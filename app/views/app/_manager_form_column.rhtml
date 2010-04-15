@@ -1,0 +1,14 @@
+<li class="form-element">
+<dl>
+  <dt>
+    <label for="record_manager">Manager</label>
+  </dt>
+  <dd>
+    <span id="manager-select">
+      <% selected = @record.manager.nil? ? nil : @record.manager.id %>
+      <%= select :record, :manager, Contact.used_select, { :selected => selected, :prompt => "Choose Manager" } %>
+      <%= all_contacts_link('manager-select', 'manager_select') %>
+    </span>
+  </dd>
+</dl>
+

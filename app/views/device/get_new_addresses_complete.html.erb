@@ -1,0 +1,45 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<% if @finished.length > 0 %>
+<h4>Successful Assignments</h4>
+<table><tr><th>Hostname</th><th>Device Class</th><th>IP Address</th><th>Subnet Mask</th><th>Gateway Address</th></tr>
+  <% @finished.each do |device| %>
+<tr><td><%= device.hostname %></td><td><%= device.device_class.name %></td><td><%= device.ipv4_interfaces[0].ip_address %></td>
+<td><%= device.ipv4_interfaces[0].ipv4_subnet.subnet_mask %></td><td><%= device.ipv4_interfaces[0].ipv4_subnet.gateway_address %></td></tr>
+  <% end %>
+</table>
+<br/>
+<br/>
+<% end %>
+
+<% if @failed.length > 0 %>
+<h4>Failed Assignments</h4>
+Try marking the subnet as delinquent and try again<br/><br/>
+  <% @failed.each do |device| %>
+    <%= device[:hostname] %>/<%= DeviceClass.find(device[:device_class]).name%><br/>
+  <% end %>
+<br/>
+<br/>
+<% end %>
+
+<% if @skipped.length > 0 %>
+<h4>Skipped Assignments</h4>
+Some information was missing for the following hosts<br/>
+You must provide at least a hostname<br/><br/>
+  <% @skipped.each do |device| %>
+    <%= "#{device[:hostname]} #{device[:description]}/#{DeviceClass.find(device[:device_class]).name}"%><br/>
+  <% end %>
+<br/>
+<br/>
+<% end %>
+
+<br/>
+<br/>
+<%= link_to "Done", :action => 'list' %>
+
+</div>
+</div>
+
+
+

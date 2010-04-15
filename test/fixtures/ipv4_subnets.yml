@@ -1,0 +1,5 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  subnet_address: <%= NetAddr::pack_ip_addr('172.17.1.0') %>
+  subnet_mask: <%= NetAddr::pack_ip_netmask('/24') %>

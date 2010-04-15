@@ -1,0 +1,36 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<div id="subform-messages">
+</div>
+
+<%= error_messages_for :equipment %>
+
+<h4>Check In Inventory Items</h4>
+<% form_for "check_in", :url => { :action => 'check_in' } do |f| %>
+<div id='details'>
+  <label for="storeroom">Storeroom:</label><br/>
+  <%= f.select :location, Location.storage_location_select, { :prompt => "Choose Storage Location" } %><br/>
+  <label for="role">Owner Type:</label><br/>
+  <%= f.select :role, Role.select_map, { :prompt => "Choose Equipment Owner" },
+            {:onchange => "$('submit-button').enable()"} %><br/>
+</div>
+<div id="active-item">
+  <%= render :partial => 'active_inventory_item', :object => Equipment.new %>
+</div>
+<br/>
+<div>
+  <label for="inventory-items">Current Inventory Items:</label><br/>
+  <table>
+  <tbody id="inventory-items" class="item-table">
+  <tr><th>Count</th><th>Product</th><th>Serial Number</th><th>Tag Number</th></tr>
+  <%= render :partial => 'inventory_item', :collection => @inventory_items unless @inventory_items.nil? %>
+  </tbody>
+  </table>
+  <br/>
+</div>
+<p><%= submit_tag "Check In", :disabled => true, :id => 'submit-button' %> or <%= link_to "Cancel", { :action => 'list' } %></p>
+<% end %>
+
+</div>
+</div>

@@ -1,0 +1,1 @@
+page.replace_html 'detail-link', :partial => 'subnet_detail_link', :locals => { :subnet => @subnet }

@@ -1,0 +1,25 @@
+<div class="active-scaffold">
+  <div class="create-view view">
+
+<h4>Confirm New Address</h4>
+<% form_for :device, :url => { :action => 'address_confirmed' } do |f| %>
+<%= hidden_field_tag :device, @device.id %>
+<%= hidden_field_tag :interface_name, @interface_name %>
+<%= hidden_field_tag :ip_address, @ip_address %>
+<%= hidden_field_tag :ipv4_subnet, @ipv4_subnet.id %>
+<%= hidden_field_tag :equipment_details, true if params[:device][:equipment_details]=='1' %>
+Device: <%= @device.hostname %><br/>
+IP Address to be assigned: <%= @ip_address %><br/>
+<br/>
+Subnet Mask: <%= @ipv4_subnet.subnet_mask%><br/>
+Gateway: <%= @ipv4_subnet.gateway_address %><br/>
+<br/>
+<h4>You must click confirm in order to assign the address</h4>
+<br/>
+<%= submit_tag "Confirm" %> or <%= link_to "Cancel", :action => 'list' %>
+<% end %>
+</div>
+</div>
+
+
+

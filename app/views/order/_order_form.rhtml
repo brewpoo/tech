@@ -1,0 +1,66 @@
+<div id='order-form-messages'>
+  <%= error_messages_for 'order' %>
+</div>
+<div id='subform-messages'>
+</div>
+<div>
+  <label for="order-type">Order Type:<label><br/>
+  <%= f.select :order_type_id, OrderType.select, :prompt => "Choose Type" %><br/>
+  <label for="description">Description:</label><br/>
+  <%= f.text_field :description %><br/>
+  <label for="project">Project:</label><br/>
+  <span id="project-select">
+    <%= render :partial => '/project/project_select', :locals => { :caller => controller.controller_name } %>
+  </span><br/>
+  <label for="justification">Justification:</label><br/>
+  <%=f.text_area :justification, :rows => 10, :cols => 75 %><br/>
+  <label for="department">Department:</label><br/>
+  <%= f.select :department_id, this_user.contact.employer.departments_select, :prompt => "Choose Department" %><br/>
+  <label for="assigned-manager">Assigned Manager:</label><br/>
+  <%= f.select :manager_id, @order.requestor.contact.manager_select, :prompt => "Choose Manager" %><br/>
+  <br/>
+  <div style="width: 25%">
+  <table cellspacing="0" cellpading="0"><tr><td><label for="budget-year">Budget Year</label></td>
+             <td><label for="fund-code">Fund Code</label></td>
+             <td><label for="budget-code">Budget Code</label></td>
+             <td><label for="management-center">Management Center</label></td>
+             <td><label for="work-order">Work Order</label></td></tr>
+  <tr><td><%= f.text_field :budget_year, :size => 4 %></td>
+      <td><%= f.text_field :fund_code, :size => 2 %></td>
+      <td><%= f.text_field :budget_code, :size => 4 %></td>
+      <td><%= f.text_field :management_center, :size => 3 %></td>
+      <td><%= f.text_field :work_order, :size => 4 %></td></tr></table><br/>
+  </div>
+  <label for="service-request">Service Request:</label><br/>
+  <%= f.text_field :service_request %><br/>
+  <label for="department-control-number">Department Control Number:</label><br/>
+  <%= f.text_field :department_control_number %><br/>
+  <label for="assignee">Assignee:</label><br/>
+  <%= f.text_field :assignee %><br/>
+  <label for="related-pc01">Related PC01:</label><br/>
+  <%= f.text_field :related_pc01 %><br/>
+  <label for="hw">HW:</label><br/>
+  <%= f.text_field :hw %><br/>
+  <label for="hwdl">HWDL:</label><br/>
+  <%= f.text_field :hwdl %><br/>
+</div>
+<div>
+  <label for="notes">Notes:</label><br/>
+  <div id="notes">
+    <%= render :partial => 'note', :collection => @order.notes if @order.notes %>
+  </div>
+  <%= add_note_link "Add a note" %>
+</div>
+<div>
+  <label for="order-items">Current Order Items:</label><br/>
+  <table>
+  <tbody id="order-items" class="item-table">
+  <tr><th>Count</th><th>Item Description</th><th>Unit Price</th><th>&nbsp;</th></tr>
+    <%= render :partial => 'order_item', :collection => @order.order_items %>
+  </tbody>
+  </table>
+  <br/><label for="active-item">Add Order Item:</label><br/>
+  <div id="active-item">
+    <%= render :partial => 'active_order_item', :object => OrderItem.new %>
+  </div>
+</div>

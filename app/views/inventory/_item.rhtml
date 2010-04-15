@@ -1,0 +1,9 @@
+<div id='form-<%= item.id.to_s %>'>
+<% remote_form_for 'inventory_item', :url => { :action => 'check_out_item' } do %>
+  <%= submit_tag 'Add Item' %>
+  <%= text_field_tag 'check_out_quantity', item.count, :size => 3 %> of
+  <%= hidden_field_tag 'id', item.id %>
+  <%= item.count %> x <%= item.product_full_name %> [ <%= item.product.part %> ] <%= "SN: #{item.serial_number}" if item.serial_number %>
+  <%= "[#{item.location.long_name}]" unless !item.location %>
+<% end %>
+</div>

@@ -1,0 +1,4 @@
+<% fields_for "vendor[]", vendor do |f| %>
+  <%= f.check_box :send_to %> <%= "#{vendor.name} (#{vendor.purchase_email})"%><br/>
+  <%= f.hidden_field :id %>
+<% end %>

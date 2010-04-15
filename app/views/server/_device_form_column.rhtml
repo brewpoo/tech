@@ -1,0 +1,14 @@
+<li class="form-element">
+<dl>
+  <dt>
+    <label for="record_device">Hosted On</label>
+  </dt>
+  <dd>
+    <span id="device-select">
+      <% selected = @record.device.nil? ? nil : @record.device.id %>
+      <%= select :record, :device, Device.host_select, { :selected => selected, :prompt => "Choose Device" } %>
+      <%= all_server_devices_link %>
+    </span>
+  </dd>
+</dl>
+

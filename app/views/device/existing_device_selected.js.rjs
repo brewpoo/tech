@@ -1,0 +1,1 @@
+page.replace_html 'device-subform', :partial => 'existing_device_subform'

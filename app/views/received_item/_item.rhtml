@@ -1,0 +1,9 @@
+<div id='form-<%= item.id.to_s %>'>
+<% remote_form_for 'received_item', :url => { :action => 'add_item' } do %>
+  <%= submit_tag 'Add to Receipt' %>
+  <%= text_field_tag 'receive_quantity', item.number_receivable, :size => 3 %> of 
+  <%= hidden_field_tag 'id', item.id %>
+  <%=item.number_receivable%> x <%=item.order_item.description%> PO:<%=item.requisition.purchase_order %> 
+  RQ:<%=item.requisition.requisition_number %> RN:<%=item.requisition.release_number %> For:<%=item.order_item.order.assignee || item.order_item.order.requestor.to_label%>
+<% end %>
+</div>

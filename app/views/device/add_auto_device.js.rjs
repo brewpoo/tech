@@ -1,0 +1,2 @@
+page.insert_html :bottom, 'new-devices', :partial => "new_auto_device", :locals => { :device => Device.new, :subnet => @subnet, :device_class => @device_class }
+
