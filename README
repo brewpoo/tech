@@ -10,12 +10,21 @@ The current authentication scheme needs to be rewritten as it depends completely
 
 Required:
 Ruby 1.8.7
-Railes 2.3.5
+Rails 2.3.5
+mysql
 
 Gems:
+mysql
 ruby-net-ldap
 netaddr
 net-ping
 cached_model
 memcache-client (optional but recommended)
+
+Instructions:
+Edit config/database.yml with a user/password able to create a database
+run rake db:schema:load
+run rake db:load_initial_data
+
+Optionally, you can also run db:load_sample_data
 

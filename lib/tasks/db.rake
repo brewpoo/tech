@@ -74,6 +74,29 @@ namespace :db do
     puts "Done"
   end
 
+  desc "Load Initial Data"
+  task :load_initial_data do
+    require 'yaml'
+
+    base = YAML::load_file('config/database.yml')
+    filename = "db/initial.sql"
+
+    puts "Importing initial data into development"
+    `mysql -u #{database['development']['username']} --password=#{database['development']['password']} #{database['development']['database']} < db/initial.sql`
+    puts "Done"
+  end
+
+
+  desc "Load Sample Data"
+  task :load_sample_data do
+    require 'yaml'
+
+    base = YAML::load_file('config/database.yml')
+
+    puts "Importing sample data into development"
+    `mysql -u #{database['development']['username']} --password=#{database['development']['password']} #{database['development']['database']} < db/sample.sql`
+    puts "Done"
+  end
 
   desc "Purge non-system data from development"
   task :purge_development_data do
@@ -84,8 +107,6 @@ namespace :db do
     puts "Truncating data"
     `mysql -u #{database['development']['username']} --password=#{database['development']['password']} #{database['development']['database']} < vendor/scripts/truncate_development.sql`
     puts "Done"
-
-
   end
   
 
