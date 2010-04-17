@@ -78,8 +78,7 @@ namespace :db do
   task :load_initial_data do
     require 'yaml'
 
-    base = YAML::load_file('config/database.yml')
-    filename = "db/initial.sql"
+    database = YAML::load_file('config/database.yml')
 
     puts "Importing initial data into development"
     `mysql -u #{database['development']['username']} --password=#{database['development']['password']} #{database['development']['database']} < db/initial.sql`
