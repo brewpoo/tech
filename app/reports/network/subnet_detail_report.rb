@@ -4,7 +4,7 @@ class Network::SubnetDetailReport < BaseReport
 
   def setup
     ipv4_subnet = Ipv4Subnet.find(options.ipv4_subnet_id.to_i)
-    cond = Caboose::EZ::Condition.new :ipv4_interfaces do
+    cond = EZ::Where::Condition.new :ipv4_interfaces do
       ipv4_subnet_id == ipv4_subnet.id.to_i
     end
     puts cond.to_sql

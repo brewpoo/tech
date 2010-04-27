@@ -73,7 +73,7 @@ class Contact < ActiveRecord::Base
   end
 
   def used
-    total = self.devices_count + self.distributed_items_count + self.wireless_interfaces_count + self.orders_count
+    total = self.devices.length + self.distributed_items.length + self.wireless_interfaces.length + self.orders.length
     return total
   end
 

@@ -5,7 +5,7 @@ class Network::ServerListReport < BaseReport
   def setup
     operating_system = options.operating_system_id.blank? ? nil : options.operating_system_id.to_i
 
-    cond = Caboose::EZ::Condition.new :devices do
+    cond = EZ::Where::Condition.new :devices do
       operating_system_id === OperatingSystem.find(operating_system).descendant_ids.flatten unless operating_system.nil? 
     end
     puts cond.to_sql

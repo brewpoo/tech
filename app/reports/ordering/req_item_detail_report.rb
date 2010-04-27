@@ -13,7 +13,7 @@ class Ordering::ReqItemDetailReport < BaseReport
     order_type = options.order_type_id.blank? ? nil : options.order_type_id.to_i
     product = options.product.blank? ? nil : options.product
 
-    cond = Caboose::EZ::Condition.new :requisition_items do
+    cond = EZ::Where::Condition.new :requisition_items do
       condition :order_items do
         condition :orders do 
           order_type_id == order_type unless order_type.nil?

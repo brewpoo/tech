@@ -8,7 +8,7 @@ class Projecting::ProjectTrackerReport < BaseReport
     manager = options.manager_id.blank? ? nil : options.manager_id.to_i
     lead_engineer = options.lead_engineer_id.blank? ? nil : options.lead_engineer_id.to_i
 
-    cond = Caboose::EZ::Condition.new :projects do
+    cond = EZ::Where::Condition.new :projects do
       project_type_id == ProjectType.find_by_abbreviation("PN")
       project_status_id == project_status unless project_status.nil?
       priority_id == priority unless priority.nil?

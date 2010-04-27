@@ -10,7 +10,7 @@ class Ordering::AgingReport < BaseReport
     ordered_on_by = options.number_days_old.blank? ? 60.days : options.number_days_old.to_i.days
     order_type = options.order_type_id.blank? ? nil : options.order_type_id.to_i
     requestor = options.requestor_id.blank? ? nil : options.requestor_id.to_i
-    cond = Caboose::EZ::Condition.new :orders do
+    cond = EZ::Where::Condition.new :orders do
       requestor_id == requestor unless requestor.nil?
       order_type_id == order_type unless order_type.nil?
       ordered_on < Time.now - ordered_on_by

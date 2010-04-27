@@ -4,7 +4,7 @@ class Circuit::MpMappingReport < BaseReport
 
   def setup
 
-    cond = Caboose::EZ::Condition.new :mp_pvcs do
+    cond = EZ::Where::Condition.new :mp_pvcs do
     end
     puts cond.to_sql
     self.data = MpPvc.report_table(:all, :include => { :dlci_a => { :only => [:dlci],

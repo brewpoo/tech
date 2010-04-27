@@ -4,7 +4,7 @@ class Circuit::DialCircuitReport < BaseReport
 
   def setup
 
-    cond = Caboose::EZ::Condition.new :dial_lines do
+    cond = EZ::Where::Condition.new :dial_lines do
     end
     puts cond.to_sql
     self.data = DialLine.report_table(:all, :include => { :device => { :only => [:hostname],

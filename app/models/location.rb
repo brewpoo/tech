@@ -37,7 +37,7 @@ class Location < ActiveRecord::Base
   end
 
   def used_count
-    return equipment_count+contacts_count+circuits_count+pc01s_count
+    return equipment.length+contacts.length+circuits.length+pc01s.length
   end
 
   def set_long_name

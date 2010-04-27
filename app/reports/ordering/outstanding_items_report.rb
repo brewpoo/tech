@@ -7,7 +7,7 @@ class Ordering::OutstandingItemsReport < BaseReport
   def setup
     created_on_by = options.number_days_old.blank? ? 60.days : options.number_days_old.to_i.days
 
-    cond = Caboose::EZ::Condition.new :requisition_items do
+    cond = EZ::Where::Condition.new :requisition_items do
       condition :received_items do
         requisition_item_id == :null   
       end

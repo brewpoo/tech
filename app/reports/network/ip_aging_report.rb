@@ -12,7 +12,7 @@ class Network::IpAgingReport < BaseReport
       reverse_logic = true
     end 
     if reverse_logic == false
-      cond = Caboose::EZ::Condition.new :ipv4_interfaces do
+      cond = EZ::Where::Condition.new :ipv4_interfaces do
         any do
           last_pinged_on < Time.now - last_pinged_by
           last_pinged_on == :null
@@ -47,7 +47,7 @@ class Network::IpAgingReport < BaseReport
         end
       end
     else
-      cond = Caboose::EZ::Condition.new :ipv4_interfaces do
+      cond = EZ::Where::Condition.new :ipv4_interfaces do
         last_pinged_on > Time.now - last_pinged_by
         ping_count > 0
       end

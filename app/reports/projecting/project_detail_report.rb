@@ -5,7 +5,7 @@ class Projecting::ProjectDetailReport < BaseReport
   def setup
     project = Project.find(options.project_id.to_i)
 
-    cond = Caboose::EZ::Condition.new :project_updates do
+    cond = EZ::Where::Condition.new :project_updates do
       project_id == project.id.to_i
     end
     puts cond.to_sql

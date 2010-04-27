@@ -7,7 +7,7 @@ class Ordering::ClosedDetailReport < BaseReport
     end_date = options.end_date.blank? ? Time.now : Time.parse(options.end_date)
     order_type = options.order_type_id.blank? ? nil : options.order_type_id.to_i
     requestor = options.requestor_id.blank? ? nil : options.requestor_id.to_i
-    cond = Caboose::EZ::Condition.new :orders do
+    cond = EZ::Where::Condition.new :orders do
       requestor_id == requestor unless requestor.nil?
       order_type_id == order_type unless order_type.nil?
       ordered_on <=> (start_date.to_s(:db)..end_date.to_s(:db))

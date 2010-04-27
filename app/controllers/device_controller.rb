@@ -45,7 +45,7 @@ class DeviceController < ApplicationController
       flash[:notice]="#{count} orphaned devices removed"
       redirect_to :action => 'list' and return
     else
-     @devices=Device.find(:all).reject!{|d| d.ipv4_interfaces_count > 0}
+     @devices=Device.find(:all).reject!{|d| d.ipv4_interfaces.length > 0}
     end
   end
 
@@ -194,7 +194,7 @@ class DeviceController < ApplicationController
   def relinquish_confirmed
     if params[:ipv4_interface]
       @ipv4_interface=Ipv4Interface.find_by_ip_address(params[:ipv4_interface])
-      if @ipv4_interface.device.interfaces_count==1
+      if @ipv4_interface.device.interfaces.length==1
         @ipv4_interface.device.destroy
         flash[:notice]="Device destroyed and address reqlinquished"
       else
@@ -225,7 +225,7 @@ class DeviceController < ApplicationController
         params[:remove_interfaces].each do |id,item|
           next if item[:delete]=='0'
           i=Ipv4Interface.find(id)
-          if i.interface.device.ipv4_interfaces_count == 1
+          if i.interface.device.ipv4_interfaces.length == 1
             i.interface.device.destroy
             device_count+=1
             interface_count+=1

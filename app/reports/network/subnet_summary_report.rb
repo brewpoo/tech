@@ -6,7 +6,7 @@ class Network::SubnetSummaryReport < BaseReport
     network_class = options.network_class_id.blank? ? nil : options.network_class_id.to_i
     topology = options.topology_id.blank? ? nil :  options.topology_id.to_i
 
-    cond = Caboose::EZ::Condition.new :subnets do
+    cond = EZ::Where::Condition.new :subnets do
       network_class_id == network_class unless network_class.nil? 
       topology_id == topology unless topology.nil? 
     end

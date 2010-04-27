@@ -6,7 +6,7 @@ class Circuit::P2pCircuitReport < BaseReport
     provider = options.provider_id.blank? ? nil : options.provider_id.to_i
     line_type = options.line_typeid.blank? ? nil :  options.line_type_id.to_i
 
-    cond = Caboose::EZ::Condition.new :pp_lines do
+    cond = EZ::Where::Condition.new :pp_lines do
       conditions :circuit do
         provider_id == provider unless provider.nil?
         line_type_id == line_type unless line_type.nil?

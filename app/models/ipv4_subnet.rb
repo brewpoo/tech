@@ -140,7 +140,7 @@ class Ipv4Subnet < ActiveRecord::Base
   end
 
   def interface_count
-    ipv4_interfaces_count
+    ipv4_interfaces.length
   end
 
   def host_capacity

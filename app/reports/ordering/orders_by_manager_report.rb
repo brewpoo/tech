@@ -10,7 +10,7 @@ class Ordering::OrdersByManagerReport < BaseReport
     order_status = options.order_status_id.blank? ? nil : options.order_status_id.to_i
     managers = Contact.find(supervisor).find_subordinates  unless supervisor.nil?
     managers << Contact.find(supervisor) unless supervisor.nil?
-    cond = Caboose::EZ::Condition.new :orders do
+    cond = EZ::Where::Condition.new :orders do
       order_type_id == order_type unless order_type.nil?
       ordered_on <=> (start_date.to_s(:db)..end_date.to_s(:db))
       order_status_id == order_status unless order_status.nil?
