@@ -43,6 +43,7 @@ gem 'ruby-net-ldap'
 require 'net/ldap'
 
 $settings=Hash.new
+$settings[:ldap_enabled]=false
 $settings[:ldap_host]='localhost'
 $settings[:ldap_port]=636
 $settings[:ldap_ssl]=true
