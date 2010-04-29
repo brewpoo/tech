@@ -18,6 +18,7 @@ mysql
 ruby-net-ldap
 netaddr
 net-ping
+validates_email
 cached_model
 memcache-client (optional but recommended)
 
